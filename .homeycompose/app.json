@@ -1,0 +1,25 @@
+{
+  "id": "no.runely.remootio",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "name": {
+    "en": "Remootio"
+  },
+  "description": {
+    "en": "Control your Remootio device with Homey"
+  },
+  "category": [
+    "security"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Rune Moskvil Lyngås",
+    "email": "runely85@gmail.com"
+  }
+}
