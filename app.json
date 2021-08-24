@@ -1,3 +1,151 @@
 {
-  "_comment": "This file is generated. Please edit .homeycompose/app.json instead."
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "no.runely.remootio",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "name": {
+    "en": "Remootio"
+  },
+  "description": {
+    "en": "Control your Remootio device with Homey"
+  },
+  "category": [
+    "security"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Rune Moskvil Lyngås",
+    "email": "runely85@gmail.com"
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Remootio"
+      },
+      "discovery": "remootio",
+      "class": "garagedoor",
+      "capabilities": [
+        "garagedoor_closed"
+      ],
+      "images": {
+        "small": "/drivers/remootio-v3/assets/images/small.png",
+        "large": "/drivers/remootio-v3/assets/images/large.png",
+        "xlarge": "/drivers/remootio-v3/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "usernameLabel": {
+              "en": "API Secret Key"
+            },
+            "usernamePlaceholder": {
+              "en": "API Secret Key"
+            },
+            "passwordLabel": {
+              "en": "API Auth Key"
+            },
+            "passwordPlaceholder": {
+              "en": "API Auth Key"
+            }
+          },
+          "navigation": {
+            "next": "list_devices"
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "remootio-v3",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Connection settings"
+          },
+          "children": [
+            {
+              "id": "ipaddress",
+              "type": "text",
+              "label": {
+                "en": "IP Address"
+              },
+              "value": "",
+              "hint": "IP Address to your Remootio"
+            },
+            {
+              "id": "port",
+              "type": "number",
+              "label": {
+                "en": "Port"
+              },
+              "value": 8080,
+              "hint": "Port number to your Remootio"
+            },
+            {
+              "id": "secretKey",
+              "type": "text",
+              "label": {
+                "en": "API Secret Key"
+              },
+              "value": "",
+              "hint": "API Secret Key to your Remootio"
+            },
+            {
+              "id": "authKey",
+              "type": "text",
+              "label": {
+                "en": "API Auth Key"
+              },
+              "value": "",
+              "hint": "API Auth Key to your Remootio"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Device settings"
+          },
+          "children": [
+            {
+              "id": "logicFlipped",
+              "type": "checkbox",
+              "label": {
+                "en": "Is sensor logic flipped"
+              },
+              "value": false,
+              "hint": "If you have flipped the sensor logic on your Remootio, turn this on"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "discovery": {
+    "remootio": {
+      "type": "mdns-sd",
+      "mdns-sd": {
+        "name": "remootio",
+        "protocol": "tcp"
+      },
+      "id": "{{txt.id}}"
+    }
+  }
 }

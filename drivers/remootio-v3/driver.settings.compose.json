@@ -1,0 +1,63 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Connection settings"
+    },
+    "children": [
+      {
+        "id": "ipaddress",
+        "type": "text",
+        "label": {
+          "en": "IP Address"
+        },
+        "value": "",
+        "hint": "IP Address to your Remootio"
+      },
+      {
+        "id": "port",
+        "type": "number",
+        "label": {
+          "en": "Port"
+        },
+        "value": 8080,
+        "hint": "Port number to your Remootio"
+      },
+      {
+        "id": "secretKey",
+        "type": "text",
+        "label": {
+          "en": "API Secret Key"
+        },
+        "value": "",
+        "hint": "API Secret Key to your Remootio"
+      },
+      {
+        "id": "authKey",
+        "type": "text",
+        "label": {
+          "en": "API Auth Key"
+        },
+        "value": "",
+        "hint": "API Auth Key to your Remootio"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Device settings"
+    },
+    "children": [
+      {
+        "id": "logicFlipped",
+        "type": "checkbox",
+        "label": {
+          "en": "Is sensor logic flipped"
+        },
+        "value": false,
+        "hint": "If you have flipped the sensor logic on your Remootio, turn this on"
+      }
+    ]
+  }
+]
