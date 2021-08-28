@@ -1,80 +1,37 @@
 'use strict'
 
 const { Device } = require('homey')
+const RemootioDevice = require('../../lib/device/remootio')
+const getReadableState = require('../../lib/device/get-readable-state')
 
-const getReadableState = state => {
-  if (logicFlipped) return state === 'open' ? "closed" : "open"
-  else return state
-}
-
-const getState = state => {
-  if (logicFlipped) return !state
-  else return state
-}
+const garageDoorCapability = 'garagedoor_closed'
 
 let homey
-let deviceName
-let logicFlipped
-let logInfo
-let logError
 
 class MyDevice extends Device {
-
   /**
    * onInit is called when the device is initialized.
    */
   async onInit () {
+    this.log('onInit', 'Device has been initialized')
+
     homey = this
-    deviceName = this.getName()
-    logicFlipped = this.getSetting('logicFlipped')
-    logInfo = msg => this.log(`'${deviceName}'${logicFlipped ? ' - logic flipped' : ''} - ${msg}`)
-    logError = (msg, error) => this.error(`'${deviceName}'${logicFlipped ? ' - logic flipped' : ''} - ${msg} : ${error}`)
 
     // initialize device
-    this.remootio = new Remootio(this.getSetting('ipaddress'), this.getSetting('secretKey'), this.getSetting('authKey'))
-
-    // add Remootio listeners
-    this.remootio.on('connecting', this.onRemootioConnecting)
-    this.remootio.on('connected', this.onRemootioConnected)
-    this.remootio.on('authenticated', this.onRemootioAuthenticated)
-    this.remootio.on('error', this.onRemootioError)
-    this.remootio.on('disconnect', this.onRemootioDisconnect)
-    this.remootio.on('incomingmessage', this.onRemootioIncommingMessage)
+    this.initializeDevice()
 
     // add garagedoor_closed listener
-    this.registerCapabilityListener('garagedoor_closed', async value => {
-      /* bear in mind that the sensor can have its logic flipped.
-        NOT FLIPPED : false = closed ; true = open
-        FLIPPED     : false = open   ; true = closed
-      */
-      this.log('garagedoor_closed capability triggered:', value)
-      if (logicFlipped) {
-        if (!value) {
-          this.remootio.sendClose()
-          logInfo('Open command sent')
-        } else {
-          this.remootio.sendOpen()
-          logInfo('Close command sent')
-        }
-      } else {
-        if (!value) {
-          this.remootio.sendOpen()
-          logInfo('Open command sent')
-        } else {
-          this.remootio.sendClose()
-          logInfo('Close command sent')
-        }
-      }
+    this.registerCapabilityListener(garageDoorCapability, async value => {
+      this.log(`${garageDoorCapability} capability listener`, 'Triggered with value:', value)
+      this.remootio.changeState(value)
     })
-
-    // start connecting to the api
-    this.remootio.connect(true)
   }
 
   /**
    * onAdded is called when the user adds the device, called just after pairing.
    */
   async onAdded () {
+    this.log('onAdded', 'Device has been added')
   }
 
   /**
@@ -86,13 +43,26 @@ class MyDevice extends Device {
    * @returns {Promise<string|void>} return a custom message that will be displayed
    */
   async onSettings ({ oldSettings, newSettings, changedKeys }) {
+    this.log('onSettings', 'These device settings were changed', changedKeys)
 
     if (changedKeys.includes('logicFlipped')) {
-      logicFlipped = newSettings['logicFlipped']
-      this.log('logicFlipped setting changed to', logicFlipped)
+      const logicFlipped = newSettings['logicFlipped']
+      const currentCapabilityValue = this.getCapabilityValue(garageDoorCapability)
+      const newCapabilityValue = !currentCapabilityValue
+      const newCapabilityReadable = getReadableState(logicFlipped, newCapabilityValue)
+
+      this.log('onSettings', 'logicFlipped setting changed to', logicFlipped)
+      this.setCapabilityValue(garageDoorCapability, newCapabilityValue)
+      this.log('onSettings', `Capability set from '${currentCapabilityValue}' to '${newCapabilityValue}':`, newCapabilityReadable)
     }
+
     if (changedKeys.includes('ipaddress') || changedKeys.includes('secretKey') || changedKeys.includes('authKey')) {
-      this.remootio.disconnect
+      // since the new settings isn't saved until this function is finished, set reconnect in a timeout
+      setTimeout(() => {
+        homey.log('Current IP:', homey.getSetting('ipaddress'))
+        homey.removeDevice()
+        homey.initializeDevice()
+      }, 100)
     }
   }
 
@@ -102,112 +72,28 @@ class MyDevice extends Device {
    * @param {string} name The new name
    */
   async onRenamed (name) {
+    this.log('onRenamed', 'Device was renamed to', name)
   }
 
   /**
    * onDeleted is called when the user deleted the device.
    */
   async onDeleted () {
+    this.log('onDeleted', 'Device has been deleted')
+    this.removeDevice()
   }
 
-  onRemootioConnecting() {
-    logInfo('connecting...')
+  initializeDevice () {
+    homey.remootio = new RemootioDevice({
+      homey
+    })
   }
 
-  onRemootioConnected() {
-    logInfo('connected. Starting authentication...')
-    homey.remootio.authenticate()
+  removeDevice () {
+    // remove Remootio listeners and disconnect
+    homey.remootio.removeAllListeners()
+    homey.remootio.disconnect()
   }
-
-  onRemootioAuthenticated() {
-    logInfo('authenticated. Enjoy :)')
-    homey.setAvailable()
-  }
-
-  onRemootioError(error) {
-    logError('RemootioError', error)
-  }
-
-  onRemootioDisconnect(error) {
-    if (!error) {
-      homey.setUnavailable('Remootio has disconnected. Check your WiFi and connection to the device')
-      logInfo('disconnected. Will try to reconnect...')
-      // create a function to reset device
-      // create a function to setup device
-    } else {
-      homey.setUnavailable(error)
-      logError('Remootio disconnected due to an error', error)
-    }
-  }
-
-  onRemootioIncommingMessage(frame, decryptedPayload) {
-    if (!decryptedPayload) return
-    const knownTypes = [
-      'TRIGGER',
-      'QUERY',
-      'OPEN',
-      'CLOSE',
-      'StateChange',
-      'RelayTrigger',
-      'SensorFlipped'
-    ]
-
-    if (decryptedPayload.response !== undefined) { // it's a response frame to an action
-      if (!knownTypes.includes(decryptedPayload.response.type)) logInfo(`Incomming response message : ${JSON.stringify(decryptedPayload, null, 2)}`)
-      if (decryptedPayload.response.type === 'TRIGGER') {
-        // it's a response frame to a trigger action
-        if (decryptedPayload.response.success) {
-          logInfo('The trigger action was successful')
-        } else {
-          logError('The trigger action was not successful', decryptedPayload.response.errorCode)
-        }
-        logInfo(`The status when triggering was ${getReadableState(decryptedPayload.response.state)}`)
-      }
-      if (decryptedPayload.response.type === 'QUERY') {
-        // it's a response frame for a query event, letting us know what state the garage_door currently is in
-        if (decryptedPayload.response.success) {
-          logInfo(`Current state is ${getReadableState(decryptedPayload.response.state)}`)
-          homey.setCapabilityValue('garagedoor_closed', getState(decryptedPayload.response.state !== 'open'))
-        } else {
-          logError(`Current state is ${getReadableState(decryptedPayload.response.state)}`, decryptedPayload.response.errorCode)
-        }
-      }
-      if (decryptedPayload.response.type === 'OPEN') {
-        // it's a response frame for an open event, letting us know if the trigger succeeded or not
-        if (decryptedPayload.response.success) {
-          logInfo(`Current state is ${getReadableState(decryptedPayload.response.state)}. Was relay triggered: ${decryptedPayload.response.relayTriggered}`)
-        } else {
-          logError(`Current state is ${getReadableState(decryptedPayload.response.state)}. Was relay triggered: ${decryptedPayload.response.relayTriggered}`, decryptedPayload.response.errorCode)
-        }
-      }
-      if (decryptedPayload.response.type === 'CLOSE') {
-        // it's a response frame for a close event, letting us know if the trigger succeeded or not
-        if (decryptedPayload.response.success) {
-          logInfo(`Current state is ${getReadableState(decryptedPayload.response.state)}. Was relay triggered: ${decryptedPayload.response.relayTriggered}`)
-        } else {
-          logError(`Current state is ${getReadableState(decryptedPayload.response.state)}. Was relay triggered: ${decryptedPayload.response.relayTriggered}`, decryptedPayload.response.errorCode)
-        }
-      }
-    }
-
-    if (decryptedPayload.event !== undefined) { // it's a event frame containing a log entry from Remootio
-      if (!knownTypes.includes(decryptedPayload.event.type)) logInfo(`Incomming event message : ${JSON.stringify(decryptedPayload, null, 2)}`)
-      if (decryptedPayload.event.type === 'StateChange') {
-        // this event is sent by Remootio when the status of the garage door has changed
-        logInfo(`State changed to ${getReadableState(decryptedPayload.event.state)}`)
-        homey.setCapabilityValue('garagedoor_closed', getState(decryptedPayload.event.state !== 'open'))
-      }
-      if (decryptedPayload.event.type === 'RelayTrigger') {
-        // this event is sent by Remootio when the relay has been triggered
-        logInfo(`Relay triggered by '${decryptedPayload.event.data.keyType}' (${decryptedPayload.event.data.keyNr}) via '${decryptedPayload.event.data.via}'. Current state is ${getReadableState(decryptedPayload.event.state)}`)
-      }
-      if (decryptedPayload.event.type === 'SensorFlipped') {
-        // this event is sent by Remootio when the sensor logic has been flipped or unflipped. There is no way to tell which it is, so this should be set manually by the user in settings
-        logInfo(`Sensor flipped. Should be set manually`)
-      }
-    }
-  }
-
 }
 
-module.exports = MyDevice;
+module.exports = MyDevice
