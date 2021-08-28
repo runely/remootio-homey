@@ -43,7 +43,6 @@ class MyDriver extends Driver {
           },
           settings: {
             ipaddress: discoveryResult.address,
-            port: discoveryResult.port,
             secretKey,
             authKey
           }

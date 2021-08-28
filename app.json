@@ -90,15 +90,6 @@
               "hint": "IP Address to your Remootio"
             },
             {
-              "id": "port",
-              "type": "number",
-              "label": {
-                "en": "Port"
-              },
-              "value": 8080,
-              "hint": "Port number to your Remootio"
-            },
-            {
               "id": "secretKey",
               "type": "text",
               "label": {
