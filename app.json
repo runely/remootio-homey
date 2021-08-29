@@ -32,6 +32,26 @@
         }
       }
     ],
+    "actions": [
+      {
+        "id": "close_garagedoor",
+        "title": {
+          "en": "Close garage door"
+        },
+        "hint": {
+          "en": "Will send a Close command IF garage door is open"
+        }
+      },
+      {
+        "id": "open_garagedoor",
+        "title": {
+          "en": "Open garage door"
+        },
+        "hint": {
+          "en": "Will send a Open command IF garage door is closed"
+        }
+      }
+    ]
   },
   "drivers": [
     {

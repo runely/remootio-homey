@@ -5,6 +5,7 @@ const { Device } = require('homey')
 const RemootioDevice = require('../../lib/device/remootio')
 const getReadableState = require('../../lib/device/get-readable-state')
 const conditionsHandler = require('../../lib/handlers/conditions')
+const actionsHandler = require('../../lib/handlers/actions')
 
 const garageDoorCapabilityID = 'garagedoor_closed'
 
@@ -30,6 +31,7 @@ class MyDevice extends Device {
 
     // add conditions and actions
     conditionsHandler(this)
+    actionsHandler(this, garageDoorCapabilityID)
   }
 
   /**
