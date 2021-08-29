@@ -31,6 +31,17 @@
         },
         "value": "",
         "hint": "API Auth Key to your Remootio"
+      },
+      {
+        "id": "maxReconnectRetries",
+        "type": "number",
+        "label": {
+          "en": "Max reconnect retries"
+        },
+        "min": 0,
+        "max": 100,
+        "value": 3,
+        "hint": "Max number of retries for reconnect when disconnected"
       }
     ]
   },

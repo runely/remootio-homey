@@ -56,6 +56,10 @@ class MyDevice extends Device {
       this.log('onSettings', `Capability set from '${currentCapabilityValue}' to '${newCapabilityValue}':`, newCapabilityReadable)
     }
 
+    if (changedKeys.includes('maxReconnectRetries')) {
+      homey.remootio.setReconnectMaxCount(newSettings['maxReconnectRetries'])
+    }
+
     if (changedKeys.includes('ipaddress') || changedKeys.includes('secretKey') || changedKeys.includes('authKey')) {
       // since the new settings isn't saved until this function is finished, set reconnect in a timeout
       setTimeout(() => {
