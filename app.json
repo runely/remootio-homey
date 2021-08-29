@@ -23,6 +23,16 @@
     "name": "Rune Moskvil Lyngås",
     "email": "runely85@gmail.com"
   },
+  "flow": {
+    "conditions": [
+      {
+        "id": "garagedoor_closed",
+        "title": {
+          "en": "Garage door is !{{closed|open}}"
+        }
+      }
+    ],
+  },
   "drivers": [
     {
       "name": {
