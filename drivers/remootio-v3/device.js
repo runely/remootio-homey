@@ -1,11 +1,12 @@
 'use strict'
 
 const { Device } = require('homey')
+
 const RemootioDevice = require('../../lib/device/remootio')
 const getReadableState = require('../../lib/device/get-readable-state')
 const conditionsHandler = require('../../lib/handlers/conditions')
 
-const garageDoorCapability = 'garagedoor_closed'
+const garageDoorCapabilityID = 'garagedoor_closed'
 
 let homey
 
@@ -22,8 +23,8 @@ class MyDevice extends Device {
     this.initializeDevice()
 
     // add garagedoor_closed listener
-    this.registerCapabilityListener(garageDoorCapability, async value => {
-      this.log(`${garageDoorCapability} capability listener`, 'Triggered with value:', value)
+    this.registerCapabilityListener(garageDoorCapabilityID, async value => {
+      this.log(`${garageDoorCapabilityID} capability listener`, 'Triggered with value:', value)
       this.remootio.changeState(value)
     })
 
@@ -51,12 +52,12 @@ class MyDevice extends Device {
 
     if (changedKeys.includes('logicFlipped')) {
       const logicFlipped = newSettings['logicFlipped']
-      const currentCapabilityValue = this.getCapabilityValue(garageDoorCapability)
+      const currentCapabilityValue = this.getCapabilityValue(garageDoorCapabilityID)
       const newCapabilityValue = !currentCapabilityValue
       const newCapabilityReadable = getReadableState(logicFlipped, newCapabilityValue)
 
       this.log('onSettings', 'logicFlipped setting changed to', logicFlipped)
-      this.setCapabilityValue(garageDoorCapability, newCapabilityValue)
+      this.setCapabilityValue(garageDoorCapabilityID, newCapabilityValue)
       this.log('onSettings', `Capability set from '${currentCapabilityValue}' to '${newCapabilityValue}':`, newCapabilityReadable)
     }
 
