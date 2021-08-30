@@ -1,9 +1,0 @@
-{
-  "id": "open_garagedoor",
-  "title": {
-    "en": "Open garage door"
-  },
-  "hint": {
-    "en": "Will send a Open command IF garage door is closed"
-  }
-}

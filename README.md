@@ -29,7 +29,6 @@ If you have flipped the logic (in the Remootio app) used on the sensor connected
 
 ## Backlog
 
-- Trigger for whom opened the garage door
 - Trigger for garage door left open
 
 ## Changelog

@@ -4,8 +4,6 @@ const { Device } = require('homey')
 
 const RemootioDevice = require('../../lib/device/remootio')
 const getReadableState = require('../../lib/device/get-readable-state')
-const conditionsHandler = require('../../lib/handlers/conditions')
-const actionsHandler = require('../../lib/handlers/actions')
 
 const garageDoorCapabilityID = 'garagedoor_closed'
 
@@ -23,15 +21,11 @@ class MyDevice extends Device {
     // initialize device
     this.initializeDevice()
 
-    // add garagedoor_closed listener
+    // add garagedoor_closed ui toggle listener
     this.registerCapabilityListener(garageDoorCapabilityID, async value => {
       this.log(`${garageDoorCapabilityID} capability listener`, 'Triggered with value:', value)
       this.remootio.changeState(value)
     })
-
-    // add conditions and actions
-    conditionsHandler(this)
-    actionsHandler(this, garageDoorCapabilityID)
   }
 
   /**
