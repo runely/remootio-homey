@@ -1,0 +1,12 @@
+{
+  "driver": {
+    "onPair": {
+      "missing_secret_and_auth": "Fyll ut 'API Secret Key' og 'API Auth Key'",
+      "missing_secret": "Fyll ut 'API Secret Key'",
+      "missing_auth": "Fyll ut 'API Auth Key'"
+    }
+  },
+  "device": {
+    "disconnected": "Remootio er frakoblet. Sjekk trådløstilkoblingen til enhten. For mange mislykkede tilkoblingsforsøk..."
+  }
+}
