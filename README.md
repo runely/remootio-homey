@@ -2,11 +2,12 @@
 
 Make your Homey even smarter by controlling your gates and garage doors with Remootio
 
-## Requirements :man_mechanic:
+## Prerequisites :man_mechanic:
 
-- **A sensor connected to your Remootio device is required to open and/or close the gate/garage door through this app**
-- **A static/fixed IP address for your Remootio is recommended**
+- **Your Remootio device is set up**
 - **Make sure your Remootio and Homey is on the same network / VLAN**
+- **The status sensor is installed and enabled in the Remootio app (Homey needs to know the current state of your gate/garage door)**
+- **A static/fixed IP address for your Remootio is recommended**
 
 ### Websocket API
 
@@ -22,23 +23,13 @@ When asked, input your `API Secret Key` and `API Auth Key`
 
 ## Settings
 
-1. If you need to change a setting, open your Remootio device from your device list in Homey.
-1. Click on the gear icon in the upper right corner
-1. Choose `Advanced settings`
-1. Do your adjustments and click the checkmark in the upper right corner (**otherwise your settings will not be saved**)
-
 ### Flipped logic
 
-If you have flipped the logic used on the sensor connected to your Remootio device, you must set `Is sensor logic flipped` to `yes` in the Remootio device.
-
-If the logic is flipped and `Is sensor logic flipped` is set to `no`, the status and actions sent to the Remootio device will be wrong.
-
-## Troubleshooting
+If you have flipped the logic (in the Remootio app) used on the sensor connected to your Remootio device, you must set `Is sensor logic flipped` to `yes` in the Remootio device settings in Homey.
 
 ## Backlog
 
 - Trigger for whom opened the garage door
-- Logging
 - Trigger for garage door left open
 
 ## Changelog
