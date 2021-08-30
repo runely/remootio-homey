@@ -1,12 +1,12 @@
 # Remootio
 
-Control your Remootio device with Homey
+Make your Homey even smarter by controlling your gates and garage doors with Remootio
 
 ## Requirements :man_mechanic:
 
-- **A sensor connected to your Remootio device is required to open and/or close the garage door through this app**
-- **A static/fixed IP address is recommended**
-- **Make sure your Remootio device and Homey is on the same network / VLAN**
+- **A sensor connected to your Remootio device is required to open and/or close the gate/garage door through this app**
+- **A static/fixed IP address for your Remootio is recommended**
+- **Make sure your Remootio and Homey is on the same network / VLAN**
 
 ### Websocket API
 
@@ -16,13 +16,13 @@ Take a note of the `API Secret Key` and `API Auth Key` shown when enabling the A
 
 ## Pairing
 
-When adding Remootio to your Homey, your Remootio device(s) will be found automatically on your network via mDSN
+When adding a Remootio device to your Homey, your Remootio device(s) will be found automatically on your network with mDNS
 
 When asked, input your `API Secret Key` and `API Auth Key`
 
 ## Settings
 
-1. If you need to change a setting, open your Remootio device(s) from your device list in Homey.
+1. If you need to change a setting, open your Remootio device from your device list in Homey.
 1. Click on the gear icon in the upper right corner
 1. Choose `Advanced settings`
 1. Do your adjustments and click the checkmark in the upper right corner (**otherwise your settings will not be saved**)
@@ -44,6 +44,8 @@ If the logic is flipped and `Is sensor logic flipped` is set to `no`, the status
 ## Changelog
 
 ## Links
+
+[Remootio](https://www.remootio.com/)
 
 [Remootio API Client for Node.js](https://www.npmjs.com/package/remootio-api-client)
 
