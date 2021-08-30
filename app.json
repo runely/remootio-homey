@@ -55,9 +55,6 @@
             "passwordPlaceholder": {
               "en": "API Auth Key"
             }
-          },
-          "navigation": {
-            "next": "list_devices"
           }
         },
         {
