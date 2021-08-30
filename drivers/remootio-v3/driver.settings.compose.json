@@ -2,17 +2,22 @@
   {
     "type": "group",
     "label": {
-      "en": "Connection settings"
+      "en": "Connection settings",
+      "no": "Tilkoblingsinnstillinger"
     },
     "children": [
       {
         "id": "ipaddress",
         "type": "text",
         "label": {
-          "en": "IP Address"
+          "en": "IP Address",
+          "no": "IP-adresse"
         },
         "value": "",
-        "hint": "IP Address to your Remootio"
+        "hint": {
+          "en": "IP Address to your Remootio",
+          "no": "IP-adressen til Remootio"
+        }
       },
       {
         "id": "secretKey",
@@ -21,7 +26,10 @@
           "en": "API Secret Key"
         },
         "value": "",
-        "hint": "API Secret Key to your Remootio"
+        "hint": {
+          "en": "API Secret Key to your Remootio",
+          "no": "API Secret Key til Remootio"
+        }
       },
       {
         "id": "authKey",
@@ -30,35 +38,47 @@
           "en": "API Auth Key"
         },
         "value": "",
-        "hint": "API Auth Key to your Remootio"
+        "hint": {
+          "en": "API Auth Key to your Remootio",
+          "no": "API Auth Key til Remootio"
+        }
       },
       {
         "id": "maxReconnectRetries",
         "type": "number",
         "label": {
-          "en": "Max reconnect retries"
+          "en": "Max reconnect retries",
+          "no": "Maks tilkoblingsforsøk"
         },
         "min": 0,
         "max": 100,
         "value": 3,
-        "hint": "Max number of retries for reconnect when disconnected"
+        "hint": {
+          "en": "Max number of retries for reconnect when disconnected",
+          "no": "Maks antall tilkoblingsforsøk når Remootio har blitt frakoblet"
+        }
       }
     ]
   },
   {
     "type": "group",
     "label": {
-      "en": "Device settings"
+      "en": "Device settings",
+      "no": "Enhetsinnstillinger"
     },
     "children": [
       {
         "id": "logicFlipped",
         "type": "checkbox",
         "label": {
-          "en": "Is sensor logic flipped"
+          "en": "Is sensor logic flipped",
+          "no": "Er sensorlogikken reversert"
         },
         "value": false,
-        "hint": "If you have flipped the sensor logic on your Remootio, turn this on"
+        "hint": {
+          "en": "If you have flipped the sensor logic on your Remootio, turn this on",
+          "no": "Dersom du har reversert sensorlogikken i Remootio, aktiver denne"
+        }
       }
     ]
   }
