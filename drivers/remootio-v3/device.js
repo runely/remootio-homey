@@ -7,7 +7,7 @@ const getReadableState = require('../../lib/device/get-readable-state')
 
 const garageDoorCapabilityID = 'garagedoor_closed'
 
-let homey
+let device
 
 class MyDevice extends Device {
   /**
@@ -16,7 +16,7 @@ class MyDevice extends Device {
   async onInit () {
     this.log('onInit', 'Device has been initialized')
 
-    homey = this
+    device = this
 
     // initialize device
     this.initializeDevice()
@@ -58,15 +58,14 @@ class MyDevice extends Device {
     }
 
     if (changedKeys.includes('maxReconnectRetries')) {
-      homey.remootio.setReconnectMaxCount(newSettings['maxReconnectRetries'])
+      device.remootio.setReconnectMaxCount(newSettings['maxReconnectRetries'])
     }
 
     if (changedKeys.includes('ipaddress') || changedKeys.includes('secretKey') || changedKeys.includes('authKey')) {
       // since the new settings isn't saved until this function is finished, set reconnect in a timeout
       setTimeout(() => {
-        homey.log('Current IP:', homey.getSetting('ipaddress'))
-        homey.removeDevice()
-        homey.initializeDevice()
+        device.removeDevice()
+        device.initializeDevice()
       }, 100)
     }
   }
@@ -89,15 +88,15 @@ class MyDevice extends Device {
   }
 
   initializeDevice () {
-    homey.remootio = new RemootioDevice({
-      homey
+    device.remootio = new RemootioDevice({
+      device
     })
   }
 
   removeDevice () {
     // remove Remootio listeners and disconnect
-    homey.remootio.removeAllListeners()
-    homey.remootio.disconnect()
+    device.remootio.removeAllListeners()
+    device.remootio.disconnect()
   }
 }
 

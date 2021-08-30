@@ -1,1 +1,12 @@
-{}
+{
+  "driver": {
+    "onPair": {
+      "missing_secret_and_auth": "Fill out 'API Secret Key' and 'API Auth Key'",
+      "missing_secret": "Fill out 'API Secret Key'",
+      "missing_auth": "Fill out 'API Auth Key'"
+    }
+  },
+  "device": {
+    "disconnected": "Remootio has disconnected. Check your WiFi connection to the device. Too many failed reconnect attempts..."
+  }
+}

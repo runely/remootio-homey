@@ -20,9 +20,9 @@ class MyDriver extends Driver {
       secretKey = data.username
       authKey = data.password
 
-      if (!data.username && !data.password) throw new Error('Fill out \'API Secret Key\' and \'API Auth Key\'')
-      else if (!data.username) throw new Error('Fill out \'API Secret Key\'')
-      else if (!data.password) throw new Error('Fill out \'API Auth Key\'')
+      if (!data.username && !data.password) throw new Error(this.homey.__('driver.onPair.missing_secret_and_auth'))
+      else if (!data.username) throw new Error(this.homey.__('driver.onPair.missing_secret'))
+      else if (!data.password) throw new Error(this.homey.__('driver.onPair.missing_auth'))
 
       // there's no way to know if keys are valid until device has been discovered, so we assume it is
       return true
@@ -51,26 +51,6 @@ class MyDriver extends Driver {
 
       return devices
     })
-  }
-
-  onDiscoveryResult (discoveryResult) {
-    console.log('onDiscoveryResult:', discoveryResult)
-    // Return a truthy value here if the discovery result matches your device.
-    return discoveryResult.id === this.getData().id
-  }
-
-  async onDiscoveryAvailable (discoveryResult) {
-    console.log('onDiscoveryAvailable:', discoveryResult)
-  }
-
-  onDiscoveryAddressChanged (discoveryResult) {
-    // Update your connection details here, reconnect when the device is offline
-    console.log('onDiscoveryAddressChanged:', discoveryResult)
-  }
-
-  onDiscoveryLastSeenChanged (discoveryResult) {
-    // When the device is offline, try to reconnect here
-    console.log('onDiscoveryLastSeenChanged:', discoveryResult)
   }
 }
 
