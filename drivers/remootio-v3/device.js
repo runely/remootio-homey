@@ -47,7 +47,7 @@ class MyDevice extends Device {
     this.log('onSettings', 'These device settings were changed', changedKeys)
 
     if (changedKeys.includes('logicFlipped')) {
-      const logicFlipped = newSettings['logicFlipped']
+      const logicFlipped = newSettings.logicFlipped
       const currentCapabilityValue = this.getCapabilityValue(garageDoorCapabilityID)
       const newCapabilityValue = !currentCapabilityValue
       const newCapabilityReadable = getReadableState(logicFlipped, newCapabilityValue)
@@ -58,7 +58,7 @@ class MyDevice extends Device {
     }
 
     if (changedKeys.includes('maxReconnectRetries')) {
-      device.remootio.setReconnectMaxCount(newSettings['maxReconnectRetries'])
+      device.remootio.setReconnectMaxCount(newSettings.maxReconnectRetries)
     }
 
     if (changedKeys.includes('ipaddress') || changedKeys.includes('secretKey') || changedKeys.includes('authKey')) {
