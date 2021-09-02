@@ -7,7 +7,7 @@
     "test:fix": "standard --fix",
     "homey-build": "homey app build",
     "homey-run": "homey app run",
-    "homey-install": "homey app install",
+    "homey-install": "npm run test:fix && homey app install",
     "homey-publish": "npm run test:fix && homey app publish"
   },
   "devDependencies": {
