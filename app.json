@@ -4,11 +4,13 @@
   "version": "1.0.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
+  "brandColor": "#ed6517",
   "name": {
     "en": "Remootio"
   },
   "description": {
-    "en": "Control your Remootio device with Homey"
+    "en": "Make your garage doors and gates smart",
+    "no": "Gjør dine garasjeporter smarte"
   },
   "category": [
     "security"
@@ -23,6 +25,10 @@
     "name": "Rune Moskvil Lyngås",
     "email": "runely85@gmail.com"
   },
+  "bugs": {
+    "url": "https://github.com/runely/remootio-homey/issues"
+  },
+  "source": "https://github.com/runely/remootio-homey",
   "drivers": [
     {
       "name": {
