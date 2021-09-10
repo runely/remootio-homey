@@ -170,7 +170,7 @@
         "name": "remootio",
         "protocol": "tcp"
       },
-      "id": "{{txt.id}}"
+      "id": "{{name}}"
     }
   }
 }
