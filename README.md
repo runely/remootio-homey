@@ -29,12 +29,13 @@ If you have flipped the logic (in the Remootio app) used on the sensor connected
 
 ## Backlog
 
-- Trigger for garage door left open
+- Trigger for whom/what opened/closed the gate/garage door
 
 ## Changelog
 
 - 1.1.0
     - Support for multiple Remootio devices
+    - Trigger card `Left open`
 - 1.0.0
     - Initial release
 
