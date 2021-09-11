@@ -4,7 +4,7 @@ Make your Homey even smarter by controlling your gates and garage doors with Rem
 
 ## Prerequisites :man_mechanic:
 
-- **Your Remootio device is set up**
+- **Your Remootio device is already set up**
 - **Make sure your Remootio and Homey is on the same network / VLAN**
 - **The status sensor is installed and enabled in the Remootio app (Homey needs to know the current state of your gate/garage door)**
 - **A static/fixed IP address for your Remootio is recommended**
