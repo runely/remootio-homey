@@ -1,5 +1,8 @@
 {
   "1.0.0": {
     "en": "Initial release"
+  },
+  "1.1.0": {
+    "en": "Support for multiple Remootio devices. Trigger card 'Left open'"
   }
 }
