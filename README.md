@@ -33,6 +33,11 @@ If you have flipped the logic (in the Remootio app) used on the sensor connected
 
 ## Changelog
 
+- 1.1.0
+    - Support for multiple Remootio devices
+- 1.0.0
+    - Initial release
+
 ## Links
 
 [Remootio](https://www.remootio.com/)
