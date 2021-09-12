@@ -47,6 +47,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.1.1
+    - Fixed a bug where app would retry connecting to device even after max retry count was hit
 - 1.1.0
     - Support for multiple Remootio devices
     - Trigger card `Left open`
