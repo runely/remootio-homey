@@ -31,6 +31,8 @@ If you have flipped the logic (in the Remootio app) used on the sensor connected
 
 - `Device shows incorrect status of the gate/garage door`
     1. Make sure `Is sensor logic flipped` setting on the Device in Homey is set equal to `Flip logic` setting in the Remootio app
+- `Device doesn't change status when gate/garage door is opened/closed externally (by button or Remootio app etc.)`
+    1. Make sure **Websocket API** is enabled with logging
 - `Device not found in pairing`
     1. Make sure your Remootio device is successfully setup
     1. Make sure you have enabled Wi-Fi on your Remootio device
