@@ -81,5 +81,50 @@
         }
       }
     ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Hardware information",
+      "no": "Maskinvareinformasjon"
+    },
+    "children": [
+      {
+        "id": "apiVersion",
+        "type": "number",
+        "label": {
+          "en": "API version",
+          "no": "API-versjon"
+        },
+        "hint": {
+          "en": "API version installed on Remootio device",
+          "no": "API-versjon installert på Remootio enhet"
+        }
+      },
+      {
+        "id": "serialNumber",
+        "type": "text",
+        "label": {
+          "en": "Serial number",
+          "no": "Serienummer"
+        },
+        "hint": {
+          "en": "Serial number on Remootio device",
+          "no": "Serienummer på Remootio enhet"
+        }
+      },
+      {
+        "id": "remootioVersion",
+        "type": "text",
+        "label": {
+          "en": "Remootio version",
+          "no": "Remootio versjon"
+        },
+        "hint": {
+          "en": "Remootio version",
+          "no": "Remootio versjon"
+        }
+      }
+    ]
   }
 ]
