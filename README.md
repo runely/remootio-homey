@@ -27,6 +27,18 @@ When asked, input your `API Secret Key` and `API Auth Key`
 
 If you have flipped the logic (in the Remootio app) used on the sensor connected to your Remootio device, you must set `Is sensor logic flipped` to `yes` in the Remootio device settings in Homey.
 
+## Troubleshooting
+
+- `Device shows incorrect status of the gate/garage door`
+    1. Make sure `Is sensor logic flipped` setting on the Device in Homey is set equal to `Flip logic` setting in the Remootio app
+- `Device not found in pairing`
+    1. Make sure your Remootio device is successfully setup
+    1. Make sure you have enabled Wi-Fi on your Remootio device
+    1. Make sure your Remootio device is on the same Wi-Fi network as your Homey
+    1. Make sure your Remootio device isn't already added as a device in Homey
+
+For any other issues, see [Remootio Installation Guide](https://documents.remootio.com/docs/Remootio_Installation_Guide.pdf) for installation instructions and troubleshooting
+
 ## Backlog
 
 - Trigger for whom/what opened/closed the gate/garage door
