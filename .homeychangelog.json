@@ -4,5 +4,8 @@
   },
   "1.1.0": {
     "en": "Support for multiple Remootio devices. Trigger card 'Left open'"
+  },
+  "1.1.1": {
+    "en": "Bugfix. Added hardware information section in device settings"
   }
 }
