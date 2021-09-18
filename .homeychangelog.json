@@ -7,5 +7,8 @@
   },
   "1.1.1": {
     "en": "Bugfix. Added hardware information section in device settings"
+  },
+  "1.1.2": {
+    "en": "Moved trigger 'Left Open' into the device itself"
   }
 }
