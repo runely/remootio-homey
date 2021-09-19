@@ -175,6 +175,21 @@
                 "en": "Max number of retries for reconnect when disconnected",
                 "no": "Maks antall tilkoblingsforsøk når Remootio har blitt frakoblet"
               }
+            },
+            {
+              "id": "autoreconnect",
+              "type": "number",
+              "label": {
+                "en": "Auto reconnect every X minutes",
+                "no": "Tilkoble automatisk hver X minutter"
+              },
+              "min": 0,
+              "max": 60,
+              "value": 5,
+              "hint": {
+                "en": "Auto reconnect every X minutes (when not connected). If set to 0, auto reconnecion will not be performed",
+                "no": "Tilkoble automatisk hver X minutter (når ikke tilkoblet). Hvis satt til 0 vil automatisk tilkoblingsforsøk ikke utføres"
+              }
             }
           ]
         },

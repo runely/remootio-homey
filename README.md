@@ -47,6 +47,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.1.3
+    - Added auto reconnect every `x` minutes (when not connected)
 - 1.1.2
     - Moved trigger `Left Open` into device
 - 1.1.1
