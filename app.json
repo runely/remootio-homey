@@ -62,7 +62,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "class_id=garagedoor"
+            "filter": "class_id=garagedoor&driver_id=remootio-v3"
           }
         ],
         "id": "left_open"
