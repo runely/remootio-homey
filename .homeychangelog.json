@@ -10,5 +10,8 @@
   },
   "1.1.2": {
     "en": "Moved trigger 'Left Open' into the device itself"
+  },
+  "1.2.0": {
+    "en": "Added auto reconnect every 'x' minutes (when not connected). Flow card 'Left Open' limited to this app only"
   }
 }
