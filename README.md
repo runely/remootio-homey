@@ -38,6 +38,9 @@ If you have flipped the logic (in the Remootio app) used on the sensor connected
     1. Make sure you have enabled Wi-Fi on your Remootio device
     1. Make sure your Remootio device is on the same Wi-Fi network as your Homey
     1. Make sure your Remootio device isn't already added as a device in Homey
+- `Device unavailable with error`: <b><u>Authentication or encryption error -- Remootio has disconnected. Check your WiFi connection to the device. Too many failed reconnect attempts...</u></b>
+    1. Make sure you have entered the correct `API Secret Key` and `API Auth Key`.
+    1. Too many failed connect attempts to a Remootio device will brake the websocket client.<br>Restarting the app or setting new auth settings for the device will create a new websocket client
 
 For any other issues, see [Remootio Installation Guide](https://documents.remootio.com/docs/Remootio_Installation_Guide.pdf) for installation instructions and troubleshooting
 
@@ -50,6 +53,7 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 - 1.2.1
     - Reconnect when retry settings are changed aswell
     - Auto reconnect by Remootio library deactivated
+    - Fixed auto reconnect (**Too many failed connect attempts to a Remootio device will brake the websocket client. Restart of the app or new auth settings for the device will create a new websocket client**)
 - 1.2.0
     - Added auto reconnect every `x` minutes (when not connected)
     - Flow card `Left Open` limited to this app only instead of all apps of class `garagedoor`

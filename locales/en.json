@@ -7,6 +7,9 @@
     }
   },
   "device": {
-    "disconnected": "Remootio has disconnected. Check your WiFi connection to the device. Too many failed reconnect attempts..."
+    "disconnected": {
+      "normal": "Remootio has disconnected",
+      "maxRetries": "Remootio has disconnected. Check your WiFi connection to the device. Too many failed reconnect attempts..."
+    }
   }
 }
