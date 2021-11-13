@@ -47,6 +47,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.2.1
+    - Reconnect when retry settings are changed aswell
 - 1.2.0
     - Added auto reconnect every `x` minutes (when not connected)
     - Flow card `Left Open` limited to this app only instead of all apps of class `garagedoor`
