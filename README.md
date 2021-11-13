@@ -54,6 +54,7 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
     - Reconnect when retry settings are changed aswell
     - Auto reconnect by Remootio library deactivated
     - Fixed auto reconnect (**Too many failed connect attempts to a Remootio device will brake the websocket client. Restart of the app or new auth settings for the device will create a new websocket client**)
+    - `Max reconnect retries` changed to `3` since a Remootio's websocket client will brake with too many attempts
 - 1.2.0
     - Added auto reconnect every `x` minutes (when not connected)
     - Flow card `Left Open` limited to this app only instead of all apps of class `garagedoor`
