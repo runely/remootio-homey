@@ -13,5 +13,8 @@
   },
   "1.2.0": {
     "en": "Added auto reconnect every 'x' minutes (when not connected). Flow card 'Left Open' limited to this app only"
+  },
+  "1.2.1": {
+    "en": "Fixed auto reconnect. Max reconnect retries changed to 3"
   }
 }
