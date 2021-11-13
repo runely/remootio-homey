@@ -29,6 +29,19 @@ If you have flipped the logic (in the Remootio app) used on the sensor connected
 
 ## Troubleshooting
 
+First, consider this:
+```
+The physical Remootio device:
+- does not use the `Websocket API` itself. This API is only used for 3.party apps/services who wants to talk to the device.
+- is limited to `1` WiFi connection at a time! This means:
+    - That when the Homey app is connected through the API, you can not use the Remootio app on your phone to connect to the device through WiFi (though through internet and bluetooth connection it will still work) and vica versa.
+    - That when you are connected to the device via WiFi through the Remootio app on your phone, you can not connect the Homey app through the API
+
+If you have a WiFi connection open from your phone (or any other device other than the Homey app), to get the Homey app reconnected you must restart the physical Remootio device, and then reconnect the device through the Homey app!
+
+These are limitations with the physical Remootio device itself!
+```
+
 - `Device shows incorrect status of the gate/garage door`
     1. Make sure `Is sensor logic flipped` setting on the Device in Homey is set equal to `Flip logic` setting in the Remootio app
 - `Device doesn't change status when gate/garage door is opened/closed externally (by button or Remootio app etc.)`
