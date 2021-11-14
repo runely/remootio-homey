@@ -59,6 +59,7 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Backlog
 
+- Add a maintenance action in device settings: https://apps.developer.homey.app/the-basics/devices/capabilities#maintenance-actions
 - Trigger for whom/what opened/closed the gate/garage door
 
 ## Changelog
