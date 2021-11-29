@@ -8,8 +8,8 @@
   },
   "device": {
     "disconnected": {
-      "normal": "Remootio has disconnected",
-      "maxRetries": "Remootio has disconnected. Check your WiFi connection to the device. Too many failed reconnect attempts..."
+      "normal": "Remootio has disconnected. Check the devices WiFi connection and IP address",
+      "maxRetries": "Remootio has disconnected. Check the devices WiFi connection and IP address. Too many failed reconnect attempts..."
     }
   }
 }

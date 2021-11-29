@@ -8,8 +8,8 @@
   },
   "device": {
     "disconnected": {
-      "normal": "Remootio er frakoblet",
-      "maxRetries": "Remootio er frakoblet. Sjekk trådløstilkoblingen til enhten. For mange mislykkede tilkoblingsforsøk..."
+      "normal": "Remootio er frakoblet. Sjekk trådløstilkoblingen og IP-adressen til enheten",
+      "maxRetries": "Remootio er frakoblet. Sjekk trådløstilkoblingen og IP-adressen til enheten. For mange mislykkede tilkoblingsforsøk..."
     }
   }
 }
