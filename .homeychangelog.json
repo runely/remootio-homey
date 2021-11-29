@@ -16,5 +16,8 @@
   },
   "1.2.1": {
     "en": "Fixed auto reconnect. Max reconnect retries changed to 3"
+  },
+  "1.2.2": {
+    "en": "Bugfixes. Better error messages when device is unreachable"
   }
 }
