@@ -64,6 +64,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.2.3
+    - DevDependency updates
 - 1.2.2
     - Fixed a bug where device would be set as available when device is unreachable and max retry count was exceeded
     - Fixed a bug where Remootios auto reconnect feature would be activated again when device is unreachable and max retry count was exceeded
