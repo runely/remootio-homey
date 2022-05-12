@@ -2,6 +2,10 @@
   "name": "no.runely.remootio",
   "version": "1.1.0",
   "main": "app.js",
+  "repository": {
+    "url": "https://github.com/runely/remootio-homey"
+  },
+  "license": "GPL-3.0-or-later",
   "scripts": {
     "test": "standard",
     "test:fix": "standard --fix",
