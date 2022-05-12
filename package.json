@@ -12,8 +12,9 @@
     "homey-publish": "npm run test:fix && homey app publish"
   },
   "devDependencies": {
-    "@types/homey": "npm:homey-apps-sdk-v3-types@0.3.0",
-    "standard": "16.0.4"
+    "@types/homey": "npm:homey-apps-sdk-v3-types@0.3.1",
+    "homey": "2.28.2",
+    "standard": "17.0.0"
   },
   "dependencies": {
     "remootio-api-client": "2.0.4"
