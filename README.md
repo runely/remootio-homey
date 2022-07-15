@@ -64,6 +64,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.2.4
+    - Dependency updates
 - 1.2.3
     - DevDependency updates
 - 1.2.2
