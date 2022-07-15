@@ -19,5 +19,8 @@
   },
   "1.2.2": {
     "en": "Bugfixes. Better error messages when device is unreachable"
+  },
+  "1.2.3": {
+    "en": "Dependency updates"
   }
 }
