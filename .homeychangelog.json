@@ -22,5 +22,8 @@
   },
   "1.2.3": {
     "en": "Dependency updates"
+  },
+  "1.2.4": {
+    "en": "Bugfix: Gate status could be fooled / confused"
   }
 }
