@@ -66,6 +66,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 - 1.2.4
     - Dependency updates
+    - **Bugfix**: Prevent `QuickAction` button from changing state when it's clicked. Let the WebSocket API determine when the state should change.
+        - Before this fix, the app could be fooled / confused to think that the state was changed (if the gate was prevented from opening/closing as it was told)
 - 1.2.3
     - DevDependency updates
 - 1.2.2
