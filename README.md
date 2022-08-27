@@ -64,6 +64,10 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.3.0
+    - When Remootio device has been offline for more than (maxReconnectAttempts * autoreconnectMinutes):
+        - Previous behavior were not to reconnect anymore
+        - Now the app will try to reconnect every hour after (maxReconnectAttempts * autoreconnectMinutes) has past and the device still hasn't reconnected
 - 1.2.4
     - Dependency updates
     - **Bugfix**: Prevent `QuickAction` button from changing state when it's clicked. Let the WebSocket API determine when the state should change.

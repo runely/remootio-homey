@@ -4,12 +4,13 @@
       "missing_secret_and_auth": "Fill out 'API Secret Key' and 'API Auth Key'",
       "missing_secret": "Fill out 'API Secret Key'",
       "missing_auth": "Fill out 'API Auth Key'"
-    }
+    },
+    "timezoneLocale": "en-US"
   },
   "device": {
     "disconnected": {
       "normal": "Remootio has disconnected. Check the devices WiFi connection and IP address",
-      "maxRetries": "Remootio has disconnected. Check the devices WiFi connection and IP address. Too many failed reconnect attempts..."
+      "retryEveryXHour": "Remootio has disconnected. Check the devices WiFi connection and IP address. Too many failed reconnect attempts. Next reconnect attempt at"
     }
   }
 }

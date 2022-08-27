@@ -4,12 +4,13 @@
       "missing_secret_and_auth": "Fyll ut 'API Secret Key' og 'API Auth Key'",
       "missing_secret": "Fyll ut 'API Secret Key'",
       "missing_auth": "Fyll ut 'API Auth Key'"
-    }
+    },
+    "timezoneLocale": "nb-NO"
   },
   "device": {
     "disconnected": {
       "normal": "Remootio er frakoblet. Sjekk trådløstilkoblingen og IP-adressen til enheten",
-      "maxRetries": "Remootio er frakoblet. Sjekk trådløstilkoblingen og IP-adressen til enheten. For mange mislykkede tilkoblingsforsøk..."
+      "retryEveryXHour": "Remootio er frakoblet. Sjekk trådløstilkoblingen og IP-adressen til enheten. For mange mislykkede tilkoblingsforsøk. Neste tilkoblingsforsøk er"
     }
   }
 }
