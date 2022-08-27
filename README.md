@@ -64,6 +64,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.3.1
+    - `this.warn` is not a function...
 - 1.3.0
     - When Remootio device has been offline for more than (maxReconnectAttempts * autoreconnectMinutes):
         - Previous behavior were not to reconnect anymore
