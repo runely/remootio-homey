@@ -25,5 +25,8 @@
   },
   "1.2.4": {
     "en": "Bugfix: Gate status could be fooled / confused"
+  },
+  "1.3.0": {
+    "en": "If device is offline longer than (maxReconnectAttempts * autoreconnectMinutes) it will try to reconnect every hour"
   }
 }
