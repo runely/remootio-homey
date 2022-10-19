@@ -64,6 +64,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.3.2
+    - Dependency updates
 - 1.3.1
     - `this.warn` is not a function...
 - 1.3.0
