@@ -22,5 +22,10 @@
   },
   "dependencies": {
     "remootio-api-client": "2.0.4"
+  },
+  "standard": {
+    "ignore": [
+      "settings/*.js"
+    ]
   }
 }

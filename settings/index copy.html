@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <!-- Homey settings -->
+    <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+  </head>
+
+  <body>
+    <div class="logs">
+      <div class="menu">
+        <div class="control">
+          <div>
+            LOG ENABLED
+            <input type="checkbox" id="logEnabled" />
+          </div>
+          <div class="clearBtn">
+            <button id="clearBtn" disabled>
+              Clear logs
+            </button>
+          </div>
+        </div>
+        <div class="devices">
+          <select id="devices">
+            <option value="all">All devices</option>
+            <option value="77737373">Garasjedøra</option>
+          </select>
+        </div>
+      </div>
+      <div class="log">
+        <textarea rows="35" cols="45" id="log"></textarea>
+      </div>
+    </div>
+
+    <script src="script.js" type="text/javascript"></script>
+
+  </body>
+</html>

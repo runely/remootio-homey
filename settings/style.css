@@ -1,0 +1,71 @@
+.logs {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.clearBtnEnabled {
+  color: black !important;
+  font-weight: bold !important;
+}
+
+.clearBtnDisabled {
+  color: gray !important;
+  font-weight: unset !important;
+}
+
+.filters {
+  display: flex;
+  gap: 1em;
+}
+
+select {
+  appearance: none;
+  
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  z-index: 1;
+  outline: none;
+}
+
+.filter {
+  width: 100%;
+  border: 1px solid #393939;
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 1em;
+  cursor: pointer;
+  line-height: 1;
+  background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+}
+
+.devicesSelect {
+  min-width: 10ch;
+  max-width: 26ch;
+}
+
+.levelsSelect {
+  min-width: 10ch;
+  max-width: 10ch;
+}
+
+.filter, .filter::after {
+  display: flex;
+  align-items: center;
+}
+
+.filter::after {
+  content: "";
+  justify-self: end;
+  width: 0.8em;
+  height: 0.5em;
+  background-color: #393939;
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
