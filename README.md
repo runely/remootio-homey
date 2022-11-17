@@ -103,6 +103,7 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
         - Added driver `Remootio (Output 1: gate impulse control, Output 2: free relay output)`
         - Added driver `Remootio (Output 1: free relay output, Output 2: gate impulse control)`
         - Renamed default driver to `Remootio (gate impulse control)`. ***This has no impact on existing devices***
+    - Dependency updates
 - 1.3.2
     - Dependency updates
 - 1.3.1
