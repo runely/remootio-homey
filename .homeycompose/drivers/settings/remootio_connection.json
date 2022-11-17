@@ -1,0 +1,76 @@
+{
+  "type": "group",
+  "label": {
+    "en": "Connection settings",
+    "no": "Tilkoblingsinnstillinger"
+  },
+  "children": [
+    {
+      "id": "ipaddress",
+      "type": "text",
+      "label": {
+        "en": "IP Address",
+        "no": "IP-adresse"
+      },
+      "value": "",
+      "hint": {
+        "en": "IP Address to your Remootio",
+        "no": "IP-adressen til Remootio"
+      }
+    },
+    {
+      "id": "secretKey",
+      "type": "text",
+      "label": {
+        "en": "API Secret Key"
+      },
+      "value": "",
+      "hint": {
+        "en": "API Secret Key to your Remootio",
+        "no": "API Secret Key til Remootio"
+      }
+    },
+    {
+      "id": "authKey",
+      "type": "text",
+      "label": {
+        "en": "API Auth Key"
+      },
+      "value": "",
+      "hint": {
+        "en": "API Auth Key to your Remootio",
+        "no": "API Auth Key til Remootio"
+      }
+    },
+    {
+      "id": "maxReconnectRetries",
+      "type": "number",
+      "label": {
+        "en": "Max reconnect retries",
+        "no": "Maks tilkoblingsforsøk"
+      },
+      "min": 0,
+      "max": 3,
+      "value": 3,
+      "hint": {
+        "en": "Max number of retries for reconnect when disconnected",
+        "no": "Maks antall tilkoblingsforsøk når Remootio har blitt frakoblet"
+      }
+    },
+    {
+      "id": "autoreconnect",
+      "type": "number",
+      "label": {
+        "en": "Auto reconnect every X minutes",
+        "no": "Tilkoble automatisk hver X minutter"
+      },
+      "min": 0,
+      "max": 60,
+      "value": 5,
+      "hint": {
+        "en": "Auto reconnect every X minutes (when not connected). If set to 0, auto reconnecion will not be performed",
+        "no": "Tilkoble automatisk hver X minutter (når ikke tilkoblet). Hvis satt til 0 vil automatisk tilkoblingsforsøk ikke utføres"
+      }
+    }
+  ]
+}

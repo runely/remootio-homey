@@ -1,0 +1,22 @@
+{
+  "name": {
+    "en": "Remootio (Output 1: gate impulse control, Output 2: free relay output)"
+  },
+  "capabilities": [
+    "garagedoor_closed.output1.gate",
+    "garagedoor_closed.output2.free"
+  ],
+  "capabilitiesOptions": {
+    "garagedoor_closed.output1.gate": {
+      "title": {
+        "en": "Output 1 (gate impulse control)"
+      }
+    },
+    "garagedoor_closed.output2.free": {
+      "title": {
+        "en": "Output 2 (free relay output)"
+      }
+    }
+  },
+  "$extends": ["remootio"]
+}

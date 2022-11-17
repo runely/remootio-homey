@@ -71,18 +71,13 @@
   },
   "drivers": [
     {
-      "name": {
-        "en": "Remootio"
-      },
       "discovery": "remootio",
       "class": "garagedoor",
-      "capabilities": [
-        "garagedoor_closed"
-      ],
+      "icon": "/drivers/remootio-fg/assets/icon.svg",
       "images": {
-        "small": "/drivers/remootio-v3/assets/images/small.png",
-        "large": "/drivers/remootio-v3/assets/images/large.png",
-        "xlarge": "/drivers/remootio-v3/assets/images/xlarge.png"
+        "small": "/drivers/remootio-fg/assets/images/small.png",
+        "large": "/drivers/remootio-fg/assets/images/large.png",
+        "xlarge": "/drivers/remootio-fg/assets/images/xlarge.png"
       },
       "pair": [
         {
@@ -115,9 +110,29 @@
           "template": "add_devices"
         }
       ],
-      "id": "remootio-v3",
+      "name": {
+        "en": "Remootio (Output 1: free relay output, Output 2: gate impulse control)"
+      },
+      "capabilities": [
+        "garagedoor_closed.output1.free",
+        "garagedoor_closed.output2.gate"
+      ],
+      "capabilitiesOptions": {
+        "garagedoor_closed.output1.free": {
+          "title": {
+            "en": "Output 1 (free relay output)"
+          }
+        },
+        "garagedoor_closed.output2.gate": {
+          "title": {
+            "en": "Output 2 (gate impulse control)"
+          }
+        }
+      },
+      "id": "remootio-fg",
       "settings": [
         {
+          "id": "remootio_connection",
           "type": "group",
           "label": {
             "en": "Connection settings",
@@ -194,6 +209,7 @@
           ]
         },
         {
+          "id": "remootio_device",
           "type": "group",
           "label": {
             "en": "Device settings",
@@ -216,6 +232,412 @@
           ]
         },
         {
+          "id": "remootio_hardware",
+          "type": "group",
+          "label": {
+            "en": "Hardware information",
+            "no": "Maskinvareinformasjon"
+          },
+          "children": [
+            {
+              "id": "apiVersion",
+              "type": "number",
+              "label": {
+                "en": "API version",
+                "no": "API-versjon"
+              },
+              "hint": {
+                "en": "API version installed on Remootio device",
+                "no": "API-versjon installert på Remootio enhet"
+              }
+            },
+            {
+              "id": "serialNumber",
+              "type": "text",
+              "label": {
+                "en": "Serial number",
+                "no": "Serienummer"
+              },
+              "hint": {
+                "en": "Serial number on Remootio device",
+                "no": "Serienummer på Remootio enhet"
+              }
+            },
+            {
+              "id": "remootioVersion",
+              "type": "text",
+              "label": {
+                "en": "Remootio version",
+                "no": "Remootio versjon"
+              },
+              "hint": {
+                "en": "Remootio version",
+                "no": "Remootio versjon"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "discovery": "remootio",
+      "class": "garagedoor",
+      "icon": "/drivers/remootio-gf/assets/icon.svg",
+      "images": {
+        "small": "/drivers/remootio-gf/assets/images/small.png",
+        "large": "/drivers/remootio-gf/assets/images/large.png",
+        "xlarge": "/drivers/remootio-gf/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "usernameLabel": {
+              "en": "API Secret Key"
+            },
+            "usernamePlaceholder": {
+              "en": "API Secret Key"
+            },
+            "passwordLabel": {
+              "en": "API Auth Key"
+            },
+            "passwordPlaceholder": {
+              "en": "API Auth Key"
+            }
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "name": {
+        "en": "Remootio (Output 1: gate impulse control, Output 2: free relay output)"
+      },
+      "capabilities": [
+        "garagedoor_closed.output1.gate",
+        "garagedoor_closed.output2.free"
+      ],
+      "capabilitiesOptions": {
+        "garagedoor_closed.output1.gate": {
+          "title": {
+            "en": "Output 1 (gate impulse control)"
+          }
+        },
+        "garagedoor_closed.output2.free": {
+          "title": {
+            "en": "Output 2 (free relay output)"
+          }
+        }
+      },
+      "id": "remootio-gf",
+      "settings": [
+        {
+          "id": "remootio_connection",
+          "type": "group",
+          "label": {
+            "en": "Connection settings",
+            "no": "Tilkoblingsinnstillinger"
+          },
+          "children": [
+            {
+              "id": "ipaddress",
+              "type": "text",
+              "label": {
+                "en": "IP Address",
+                "no": "IP-adresse"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP Address to your Remootio",
+                "no": "IP-adressen til Remootio"
+              }
+            },
+            {
+              "id": "secretKey",
+              "type": "text",
+              "label": {
+                "en": "API Secret Key"
+              },
+              "value": "",
+              "hint": {
+                "en": "API Secret Key to your Remootio",
+                "no": "API Secret Key til Remootio"
+              }
+            },
+            {
+              "id": "authKey",
+              "type": "text",
+              "label": {
+                "en": "API Auth Key"
+              },
+              "value": "",
+              "hint": {
+                "en": "API Auth Key to your Remootio",
+                "no": "API Auth Key til Remootio"
+              }
+            },
+            {
+              "id": "maxReconnectRetries",
+              "type": "number",
+              "label": {
+                "en": "Max reconnect retries",
+                "no": "Maks tilkoblingsforsøk"
+              },
+              "min": 0,
+              "max": 3,
+              "value": 3,
+              "hint": {
+                "en": "Max number of retries for reconnect when disconnected",
+                "no": "Maks antall tilkoblingsforsøk når Remootio har blitt frakoblet"
+              }
+            },
+            {
+              "id": "autoreconnect",
+              "type": "number",
+              "label": {
+                "en": "Auto reconnect every X minutes",
+                "no": "Tilkoble automatisk hver X minutter"
+              },
+              "min": 0,
+              "max": 60,
+              "value": 5,
+              "hint": {
+                "en": "Auto reconnect every X minutes (when not connected). If set to 0, auto reconnecion will not be performed",
+                "no": "Tilkoble automatisk hver X minutter (når ikke tilkoblet). Hvis satt til 0 vil automatisk tilkoblingsforsøk ikke utføres"
+              }
+            }
+          ]
+        },
+        {
+          "id": "remootio_device",
+          "type": "group",
+          "label": {
+            "en": "Device settings",
+            "no": "Enhetsinnstillinger"
+          },
+          "children": [
+            {
+              "id": "logicFlipped",
+              "type": "checkbox",
+              "label": {
+                "en": "Is sensor logic flipped",
+                "no": "Er sensorlogikken reversert"
+              },
+              "value": false,
+              "hint": {
+                "en": "If you have flipped the sensor logic on your Remootio, turn this on",
+                "no": "Dersom du har reversert sensorlogikken i Remootio, aktiver denne"
+              }
+            }
+          ]
+        },
+        {
+          "id": "remootio_hardware",
+          "type": "group",
+          "label": {
+            "en": "Hardware information",
+            "no": "Maskinvareinformasjon"
+          },
+          "children": [
+            {
+              "id": "apiVersion",
+              "type": "number",
+              "label": {
+                "en": "API version",
+                "no": "API-versjon"
+              },
+              "hint": {
+                "en": "API version installed on Remootio device",
+                "no": "API-versjon installert på Remootio enhet"
+              }
+            },
+            {
+              "id": "serialNumber",
+              "type": "text",
+              "label": {
+                "en": "Serial number",
+                "no": "Serienummer"
+              },
+              "hint": {
+                "en": "Serial number on Remootio device",
+                "no": "Serienummer på Remootio enhet"
+              }
+            },
+            {
+              "id": "remootioVersion",
+              "type": "text",
+              "label": {
+                "en": "Remootio version",
+                "no": "Remootio versjon"
+              },
+              "hint": {
+                "en": "Remootio version",
+                "no": "Remootio versjon"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "discovery": "remootio",
+      "class": "garagedoor",
+      "icon": "/drivers/remootio-v3/assets/icon.svg",
+      "images": {
+        "small": "/drivers/remootio-v3/assets/images/small.png",
+        "large": "/drivers/remootio-v3/assets/images/large.png",
+        "xlarge": "/drivers/remootio-v3/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "usernameLabel": {
+              "en": "API Secret Key"
+            },
+            "usernamePlaceholder": {
+              "en": "API Secret Key"
+            },
+            "passwordLabel": {
+              "en": "API Auth Key"
+            },
+            "passwordPlaceholder": {
+              "en": "API Auth Key"
+            }
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "name": {
+        "en": "Remootio (gate impulse control)"
+      },
+      "capabilities": [
+        "garagedoor_closed"
+      ],
+      "id": "remootio-v3",
+      "settings": [
+        {
+          "id": "remootio_connection",
+          "type": "group",
+          "label": {
+            "en": "Connection settings",
+            "no": "Tilkoblingsinnstillinger"
+          },
+          "children": [
+            {
+              "id": "ipaddress",
+              "type": "text",
+              "label": {
+                "en": "IP Address",
+                "no": "IP-adresse"
+              },
+              "value": "",
+              "hint": {
+                "en": "IP Address to your Remootio",
+                "no": "IP-adressen til Remootio"
+              }
+            },
+            {
+              "id": "secretKey",
+              "type": "text",
+              "label": {
+                "en": "API Secret Key"
+              },
+              "value": "",
+              "hint": {
+                "en": "API Secret Key to your Remootio",
+                "no": "API Secret Key til Remootio"
+              }
+            },
+            {
+              "id": "authKey",
+              "type": "text",
+              "label": {
+                "en": "API Auth Key"
+              },
+              "value": "",
+              "hint": {
+                "en": "API Auth Key to your Remootio",
+                "no": "API Auth Key til Remootio"
+              }
+            },
+            {
+              "id": "maxReconnectRetries",
+              "type": "number",
+              "label": {
+                "en": "Max reconnect retries",
+                "no": "Maks tilkoblingsforsøk"
+              },
+              "min": 0,
+              "max": 3,
+              "value": 3,
+              "hint": {
+                "en": "Max number of retries for reconnect when disconnected",
+                "no": "Maks antall tilkoblingsforsøk når Remootio har blitt frakoblet"
+              }
+            },
+            {
+              "id": "autoreconnect",
+              "type": "number",
+              "label": {
+                "en": "Auto reconnect every X minutes",
+                "no": "Tilkoble automatisk hver X minutter"
+              },
+              "min": 0,
+              "max": 60,
+              "value": 5,
+              "hint": {
+                "en": "Auto reconnect every X minutes (when not connected). If set to 0, auto reconnecion will not be performed",
+                "no": "Tilkoble automatisk hver X minutter (når ikke tilkoblet). Hvis satt til 0 vil automatisk tilkoblingsforsøk ikke utføres"
+              }
+            }
+          ]
+        },
+        {
+          "id": "remootio_device",
+          "type": "group",
+          "label": {
+            "en": "Device settings",
+            "no": "Enhetsinnstillinger"
+          },
+          "children": [
+            {
+              "id": "logicFlipped",
+              "type": "checkbox",
+              "label": {
+                "en": "Is sensor logic flipped",
+                "no": "Er sensorlogikken reversert"
+              },
+              "value": false,
+              "hint": {
+                "en": "If you have flipped the sensor logic on your Remootio, turn this on",
+                "no": "Dersom du har reversert sensorlogikken i Remootio, aktiver denne"
+              }
+            }
+          ]
+        },
+        {
+          "id": "remootio_hardware",
           "type": "group",
           "label": {
             "en": "Hardware information",

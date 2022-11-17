@@ -1,46 +1,9 @@
 {
   "name": {
-    "en": "Remootio"
+    "en": "Remootio (gate impulse control)"
   },
-  "discovery": "remootio",
-  "class": "garagedoor",
   "capabilities": [
     "garagedoor_closed"
   ],
-  "images": {
-    "small": "{{driverAssetsPath}}/images/small.png",
-    "large": "{{driverAssetsPath}}/images/large.png",
-    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
-  },
-  "pair": [
-    {
-      "id": "login_credentials",
-      "template": "login_credentials",
-      "options": {
-        "usernameLabel": {
-          "en": "API Secret Key"
-        },
-        "usernamePlaceholder": {
-          "en": "API Secret Key"
-        },
-        "passwordLabel": {
-          "en": "API Auth Key"
-        },
-        "passwordPlaceholder": {
-          "en": "API Auth Key"
-        }
-      }
-    },
-    {
-      "id": "list_devices",
-      "template": "list_devices",
-      "navigation": {
-        "next": "add_devices"
-      }
-    },
-    {
-      "id": "add_devices",
-      "template": "add_devices"
-    }
-  ]
+  "$extends": ["remootio"]
 }

@@ -8,12 +8,45 @@ Make your Homey even smarter by controlling your gates and garage doors with Rem
 - **Make sure your Remootio and Homey is on the same network / VLAN**
 - **The status sensor is installed and enabled in the Remootio app (Homey needs to know the current state of your gate/garage door)**
 - **A static/fixed IP address for your Remootio is recommended**
+- ***Output configuration* for your Remootio device *MUST* be set to one of these:**
+    - **Output 1: disabled Output 2: gate impulse control**
+    - **Output 1: gate impulse control Output 2: free relay output**
+    - **Output 1: free relay output Output 2: gate impulse control**
+    - **Output 1 & Output 2: gate impulse control**
+    - **Output 1: gate impulse control Output 2: disabled**
 
 ### Websocket API
 
 The API in the Remootio must be enabled before adding Remootio device(s) to Homey. Instructions [here](https://documents.remootio.com/docs/WebsocketApiDocs.pdf)
 
 Take a note of the `API Secret Key` and `API Auth Key` shown when enabling the API
+
+### Which driver to use
+
+#### Remootio (gate impulse control)
+
+This driver supports the following Output configurations:
+- **Output 1: disabled Output 2: gate impulse control**
+- **Output 1 & Output 2: gate impulse control**
+- **Output 1: gate impulse control Output 2: disabled**
+
+#### Remootio (Output 1: gate impulse control, Output 2: free relay output)
+
+This driver supports the following Output configuration:
+- **Output 1: gate impulse control Output 2: free relay output**
+
+> Keep in mind that the `status sensor` only senses state changes on **Output 1**
+
+> **Output 2** will be a stateless toggle (Homey will show different states when toggled, but this state don't necessarily reflect the actual state for **Output 2**)
+
+#### Remootio (Output 1: free relay output, Output 2: gate impulse control)
+
+This driver supports the following Output configuration:
+- **Output 1: free relay output Output 2: gate impulse control**
+
+> Keep in mind that the `status sensor` only senses state changes on **Output 2**
+
+> **Output 1** will be a stateless toggle (Homey will show different states when toggled, but this state don't necessarily reflect the actual state for **Output 1**)
 
 ## Pairing
 
@@ -44,6 +77,7 @@ These are limitations with the physical Remootio device itself!
 
 - `Device shows incorrect status of the gate/garage door`
     1. Make sure `Is sensor logic flipped` setting on the Device in Homey is set equal to `Flip logic` setting in the Remootio app
+    1. Make sure you have chosen the correct driver for your Output configuration
 - `Device doesn't change status when gate/garage door is opened/closed externally (by button or Remootio app etc.)`
     1. Make sure **Websocket API** is enabled with logging
 - `Device not found in pairing`
@@ -64,6 +98,11 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.4.0
+    - Added possibility to control `gate impulse control` aswell as `free relay output` -> [Issue #27](https://github.com/runely/remootio-homey/issues/27)
+        - Added driver `Remootio (Output 1: gate impulse control, Output 2: free relay output)`
+        - Added driver `Remootio (Output 1: free relay output, Output 2: gate impulse control)`
+        - Renamed default driver to `Remootio (gate impulse control)`. ***This has no impact on existing devices***
 - 1.3.2
     - Dependency updates
 - 1.3.1

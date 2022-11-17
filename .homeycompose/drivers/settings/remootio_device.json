@@ -1,0 +1,22 @@
+{
+  "type": "group",
+  "label": {
+    "en": "Device settings",
+    "no": "Enhetsinnstillinger"
+  },
+  "children": [
+    {
+      "id": "logicFlipped",
+      "type": "checkbox",
+      "label": {
+        "en": "Is sensor logic flipped",
+        "no": "Er sensorlogikken reversert"
+      },
+      "value": false,
+      "hint": {
+        "en": "If you have flipped the sensor logic on your Remootio, turn this on",
+        "no": "Dersom du har reversert sensorlogikken i Remootio, aktiver denne"
+      }
+    }
+  ]
+}
