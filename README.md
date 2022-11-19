@@ -98,6 +98,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.4.1
+    - Added drivers `remootio-fg` and `remootio-gf` to the flow `left_open`
 - 1.4.0
     - Added possibility to control `gate impulse control` aswell as `free relay output` -> [Issue #27](https://github.com/runely/remootio-homey/issues/27)
         - Added driver `Remootio (Output 1: gate impulse control, Output 2: free relay output)`
