@@ -37,5 +37,8 @@
   },
   "1.4.0": {
     "en": "Added possibility to control 'gate impulse control' aswell as 'free relay output' (two new drivers)"
+  },
+  "1.4.1": {
+    "en": "Added flows for the new drivers. Added repair functionallity"
   }
 }
