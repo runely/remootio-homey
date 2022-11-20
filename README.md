@@ -93,7 +93,6 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Backlog
 
-- Add a maintenance action in device settings: https://apps.developer.homey.app/the-basics/devices/capabilities#maintenance-actions
 - Trigger for whom/what opened/closed the gate/garage door
 
 ## Changelog
@@ -105,6 +104,7 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
         - triggers `Closed` and `Opened`
         - condition `Is closed/open`
         - actions `Close`, `Open`, `Toggle open or closed` and `Toggle free relay open or closed`
+    - Added repair functionallity to drivers
 - 1.4.0
     - Added possibility to control `gate impulse control` aswell as `free relay output` -> [Issue #27](https://github.com/runely/remootio-homey/issues/27)
         - Added driver `Remootio (Output 1: gate impulse control, Output 2: free relay output)`

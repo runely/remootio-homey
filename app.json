@@ -242,6 +242,26 @@
           "template": "add_devices"
         }
       ],
+      "repair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "usernameLabel": {
+              "en": "API Secret Key"
+            },
+            "usernamePlaceholder": {
+              "en": "API Secret Key"
+            },
+            "passwordLabel": {
+              "en": "API Auth Key"
+            },
+            "passwordPlaceholder": {
+              "en": "API Auth Key"
+            }
+          }
+        }
+      ],
       "name": {
         "en": "Remootio (Output 1: free relay output, Output 2: gate impulse control)"
       },
@@ -451,6 +471,26 @@
           "template": "add_devices"
         }
       ],
+      "repair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "usernameLabel": {
+              "en": "API Secret Key"
+            },
+            "usernamePlaceholder": {
+              "en": "API Secret Key"
+            },
+            "passwordLabel": {
+              "en": "API Auth Key"
+            },
+            "passwordPlaceholder": {
+              "en": "API Auth Key"
+            }
+          }
+        }
+      ],
       "name": {
         "en": "Remootio (Output 1: gate impulse control, Output 2: free relay output)"
       },
@@ -658,6 +698,26 @@
         {
           "id": "add_devices",
           "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "usernameLabel": {
+              "en": "API Secret Key"
+            },
+            "usernamePlaceholder": {
+              "en": "API Secret Key"
+            },
+            "passwordLabel": {
+              "en": "API Auth Key"
+            },
+            "passwordPlaceholder": {
+              "en": "API Auth Key"
+            }
+          }
         }
       ],
       "name": {

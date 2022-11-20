@@ -3,6 +3,7 @@
 const { Driver } = require('homey')
 
 const hasValue = value => value && value !== 'undefined' && value !== 'null'
+const doSleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 class RemootioDriver extends Driver {
   /**
@@ -50,6 +51,32 @@ class RemootioDriver extends Driver {
       })
 
       return devices
+    })
+  }
+
+  async onRepair(session, device) {
+    let secretKey = ''
+    let authKey = ''
+
+    session.setHandler('login', async data => {
+      secretKey = data.username
+      authKey = data.password
+
+      if (!data.username && !data.password) throw new Error(this.homey.__('driver.onPair.missing_secret_and_auth'))
+      else if (!data.username) throw new Error(this.homey.__('driver.onPair.missing_secret'))
+      else if (!data.password) throw new Error(this.homey.__('driver.onPair.missing_auth'))
+
+      device.setSettings({
+        secretKey,
+        authKey
+      })
+
+      device.removeDevice()
+      await doSleep(150)
+      device.initialize()
+      await doSleep(250)
+      const isConnected = device.remootio.isConnected
+      return isConnected
     })
   }
 }
