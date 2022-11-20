@@ -30,7 +30,7 @@ class Remootio extends Homey.App {
         device.triggerCapabilityListener(device.getGarageDoorCapabilityId(), false)
         return true
       })
-    
+
     this.homey.flow.getActionCard('garagedoor_toggle_sub')
       .registerRunListener(args => {
         const { device } = args

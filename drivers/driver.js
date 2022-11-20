@@ -54,7 +54,7 @@ class RemootioDriver extends Driver {
     })
   }
 
-  async onRepair(session, device) {
+  async onRepair (session, device) {
     let secretKey = ''
     let authKey = ''
 
