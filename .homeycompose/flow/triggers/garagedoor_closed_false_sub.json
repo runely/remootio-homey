@@ -1,0 +1,18 @@
+{
+  "id": "garagedoor_closed_false_sub",
+  "title": {
+    "en": "Opened",
+    "no": "Åpnet"
+  },
+  "hint": {
+    "en": "This is applicable only for the gate impulse control",
+    "no": "Dette gjelder kun for gate impulse control"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=remootio-fg|remootio-gf"
+    }
+  ]
+}

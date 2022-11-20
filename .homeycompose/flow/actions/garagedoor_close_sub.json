@@ -1,0 +1,19 @@
+{
+  "id": "garagedoor_close_sub",
+  "highlight": true,
+  "title": {
+    "en": "Close",
+    "no": "Lukk"
+  },
+  "hint": {
+    "en": "This is applicable only for the gate impulse control",
+    "no": "Dette gjelder kun for gate impulse control"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "class_id=garagedoor&driver_id=remootio-fg|remootio-gf"
+    }
+  ]
+}

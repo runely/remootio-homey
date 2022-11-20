@@ -1,0 +1,18 @@
+{
+  "id": "garagedoor_toggle_free_sub",
+  "title": {
+    "en": "Toggle free relay open or closed",
+    "no": "Veksle free relay mellom åpen og lukket"
+  },
+  "hint": {
+    "en": "This is applicable only for the free relay output",
+    "no": "Dette gjelder kun for free relay output"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "class_id=garagedoor&driver_id=remootio-fg|remootio-gf"
+    }
+  ]
+}

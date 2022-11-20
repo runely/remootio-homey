@@ -32,6 +32,42 @@
   "flow": {
     "triggers": [
       {
+        "id": "garagedoor_closed_false_sub",
+        "title": {
+          "en": "Opened",
+          "no": "Åpnet"
+        },
+        "hint": {
+          "en": "This is applicable only for the gate impulse control",
+          "no": "Dette gjelder kun for gate impulse control"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=remootio-fg|remootio-gf"
+          }
+        ]
+      },
+      {
+        "id": "garagedoor_closed_true_sub",
+        "title": {
+          "en": "Closed",
+          "no": "Lukket"
+        },
+        "hint": {
+          "en": "This is applicable only for the gate impulse control",
+          "no": "Dette gjelder kun for gate impulse control"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=remootio-fg|remootio-gf"
+          }
+        ]
+      },
+      {
         "title": {
           "en": "Left open",
           "no": "Stått åpen"
@@ -66,6 +102,102 @@
           }
         ],
         "id": "left_open"
+      }
+    ],
+    "conditions": [
+      {
+        "id": "garagedoor_closed_sub",
+        "title": {
+          "en": "Is !{{closed|open}}",
+          "no": "Er !{{lukket|åpen}}"
+        },
+        "hint": {
+          "en": "This is applicable only for the gate impulse control",
+          "no": "Dette gjelder kun for gate impulse control"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "class_id=garagedoor&driver_id=remootio-fg|remootio-gf"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "garagedoor_close_sub",
+        "highlight": true,
+        "title": {
+          "en": "Close",
+          "no": "Lukk"
+        },
+        "hint": {
+          "en": "This is applicable only for the gate impulse control",
+          "no": "Dette gjelder kun for gate impulse control"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "class_id=garagedoor&driver_id=remootio-fg|remootio-gf"
+          }
+        ]
+      },
+      {
+        "id": "garagedoor_open_sub",
+        "highlight": true,
+        "title": {
+          "en": "Open",
+          "no": "Åpne"
+        },
+        "hint": {
+          "en": "This is applicable only for the gate impulse control",
+          "no": "Dette gjelder kun for gate impulse control"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "class_id=garagedoor&driver_id=remootio-fg|remootio-gf"
+          }
+        ]
+      },
+      {
+        "id": "garagedoor_toggle_free_sub",
+        "title": {
+          "en": "Toggle free relay open or closed",
+          "no": "Veksle free relay mellom åpen og lukket"
+        },
+        "hint": {
+          "en": "This is applicable only for the free relay output",
+          "no": "Dette gjelder kun for free relay output"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "class_id=garagedoor&driver_id=remootio-fg|remootio-gf"
+          }
+        ]
+      },
+      {
+        "id": "garagedoor_toggle_sub",
+        "title": {
+          "en": "Toggle open or closed",
+          "no": "Veksle mellom åpen og lukket"
+        },
+        "hint": {
+          "en": "This is applicable only for the gate impulse control",
+          "no": "Dette gjelder kun for gate impulse control"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "class_id=garagedoor&driver_id=remootio-fg|remootio-gf"
+          }
+        ]
       }
     ]
   },
