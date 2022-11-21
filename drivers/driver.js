@@ -1,9 +1,9 @@
 'use strict'
 
 const { Driver } = require('homey')
+const doSleep = require('../lib/sleep')
 
 const hasValue = value => value && value !== 'undefined' && value !== 'null'
-const doSleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 class RemootioDriver extends Driver {
   /**
@@ -72,9 +72,9 @@ class RemootioDriver extends Driver {
       })
 
       device.removeDevice()
-      await doSleep(150)
+      await doSleep(device.homey, 150)
       device.initialize()
-      await doSleep(250)
+      await doSleep(device.homey, 250)
       const isConnected = device.remootio.isConnected
       return isConnected
     })

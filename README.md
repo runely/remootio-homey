@@ -97,6 +97,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.4.2
+    - Bugfix: Invalid capability
 - 1.4.1
     - Added drivers `remootio-fg` and `remootio-gf` to the flow `left_open`
     - sub-capabilities should only use 1 `.` to prevent any possible problems in the future (this won't break anything for anyone since **v1.4.0** were never released)
