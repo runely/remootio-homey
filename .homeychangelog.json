@@ -40,5 +40,8 @@
   },
   "1.4.1": {
     "en": "Added flows for the new drivers. Added repair functionallity"
+  },
+  "1.4.2": {
+    "en": "Bugfix"
   }
 }
