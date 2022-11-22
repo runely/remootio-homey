@@ -97,6 +97,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.4.3
+    - Bugfix: Autoreconnect `setTimeout` function would still fire after device has been reconnected, disconnected, even removed or even worse when app has been uninstalled/paused
 - 1.4.2
     - Bugfix: Invalid capability
 - 1.4.1
