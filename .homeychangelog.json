@@ -43,5 +43,8 @@
   },
   "1.4.2": {
     "en": "Bugfix"
+  },
+  "1.4.3": {
+    "en": "Bugfix: Autoreconnect function could in some cases fire after device had been reconnected, disconnected or removed"
   }
 }
