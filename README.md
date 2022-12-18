@@ -99,6 +99,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 - 1.4.4
     - Dependency updates
+    - Don't use garageDoorCapability if not registered
+    - More logging
 - 1.4.3
     - Bugfix: Autoreconnect `setTimeout` function would still fire after device has been reconnected, disconnected, even removed or even worse when app has been uninstalled/paused
 - 1.4.2

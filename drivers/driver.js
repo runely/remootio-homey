@@ -34,7 +34,7 @@ class RemootioDriver extends Driver {
       const discoveryResults = discoveryStrategy.getDiscoveryResults()
 
       const devices = Object.values(discoveryResults).map(discoveryResult => {
-        console.dir(discoveryResult)
+        this.log('driver_onPair -> list_devices:', discoveryResult)
         const name = hasValue(discoveryResult.id) ? discoveryResult.txt.name || discoveryResult.name : discoveryResult.host
         const id = hasValue(discoveryResult.id) ? discoveryResult.id : discoveryResult.txt.name || discoveryResult.name
         return {
@@ -66,6 +66,7 @@ class RemootioDriver extends Driver {
       else if (!data.username) throw new Error(this.homey.__('driver.onPair.missing_secret'))
       else if (!data.password) throw new Error(this.homey.__('driver.onPair.missing_auth'))
 
+      this.log('driver_onRepair -> login : isConnected before repair :', device.remootio.isConnected)
       device.setSettings({
         secretKey,
         authKey
@@ -75,8 +76,9 @@ class RemootioDriver extends Driver {
       await doSleep(device.homey, 150)
       device.initialize()
       await doSleep(device.homey, 250)
-      const isConnected = device.remootio.isConnected
-      return isConnected
+
+      this.log('driver_onRepair -> login : isConnected after repair :', device.remootio.isConnected)
+      return device.remootio.isConnected
     })
   }
 }
