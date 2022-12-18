@@ -46,5 +46,8 @@
   },
   "1.4.3": {
     "en": "Bugfix: Autoreconnect function could in some cases fire after device had been reconnected, disconnected or removed"
+  },
+  "1.4.4": {
+    "en": "Dependency updates. Garagedoor capability bugfix. More logging"
   }
 }
