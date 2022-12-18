@@ -16,7 +16,7 @@
     "homey-publish": "npm run test:fix && homey app publish"
   },
   "devDependencies": {
-    "@types/homey": "npm:homey-apps-sdk-v3-types@0.3.1",
+    "@types/homey": "npm:homey-apps-sdk-v3-types@0.3.2",
     "homey": "2.30.8",
     "standard": "17.0.0"
   },
