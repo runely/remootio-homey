@@ -49,5 +49,8 @@
   },
   "1.4.4": {
     "en": "Dependency updates. Garagedoor capability bugfix. More logging"
+  },
+  "1.4.5": {
+    "en": "Minor fixes. Dependency updates."
   }
 }
