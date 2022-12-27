@@ -99,6 +99,7 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 - 1.5.0
     - Minor fixes
+    - Handle all floating promises
 - 1.4.4
     - Dependency updates
     - Don't use garageDoorCapability if not registered
