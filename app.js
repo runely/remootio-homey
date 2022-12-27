@@ -25,7 +25,7 @@ class Remootio extends Homey.App {
         const garageCapabilityId = device.getGarageDoorCapabilityId()
         if (garageCapabilityId) {
           device.log(`${device.getName()} -- garagedoor_close_sub called`)
-          device.triggerCapabilityListener(device.getGarageDoorCapabilityId(), true)
+          device.triggerCapabilityListener(garageCapabilityId, true)
           return true
         } else {
           device.log(`${device.getName()} -- garagedoor_close_sub -- Garagedoor capability not found`)
@@ -39,7 +39,7 @@ class Remootio extends Homey.App {
         const garageCapabilityId = device.getGarageDoorCapabilityId()
         if (garageCapabilityId) {
           device.log(`${device.getName()} -- garagedoor_open_sub called`)
-          device.triggerCapabilityListener(device.getGarageDoorCapabilityId(), false)
+          device.triggerCapabilityListener(garageCapabilityId, false)
           return true
         } else {
           device.log(`${device.getName()} -- garagedoor_open_sub -- Garagedoor capability not found`)
@@ -53,7 +53,7 @@ class Remootio extends Homey.App {
         const garageCapabilityId = device.getGarageDoorCapabilityId()
         if (garageCapabilityId) {
           device.log(`${device.getName()} -- garagedoor_toggle_sub called`)
-          device.triggerCapabilityListener(device.getGarageDoorCapabilityId(), !device.getGarageDoorState())
+          device.triggerCapabilityListener(garageCapabilityId, !device.getGarageDoorState())
           return true
         } else {
           device.log(`${device.getName()} -- garagedoor_toggle_sub -- Garagedoor capability not found`)
