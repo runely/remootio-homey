@@ -97,7 +97,7 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
-- 1.5.0
+- 1.4.5
     - Minor fixes
     - Handle all floating promises
     - Added information and reconnect possibility if IP, secretkey or authkey is wrong
