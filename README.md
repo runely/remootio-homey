@@ -101,6 +101,7 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
     - Minor fixes
     - Handle all floating promises
     - Added information and reconnect possibility if IP, secretkey or authkey is wrong
+    - Dependency updates
 - 1.4.4
     - Dependency updates
     - Don't use garageDoorCapability if not registered
