@@ -97,6 +97,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.4.6
+    - Dependency updates
 - 1.4.5
     - Minor fixes
     - Handle all floating promises
