@@ -17,24 +17,49 @@ class RemootioDriver extends Driver {
     let secretKey = ''
     let authKey = ''
 
-    session.setHandler('login', async data => {
-      secretKey = data.username
-      authKey = data.password
+    session.setHandler('login-secret-keys-post', async data => {
+      secretKey = data.secretKey
+      authKey = data.authKey
+      this.log('driver_onPair -> login-secret-keys-post :', data)
 
-      if (!data.username && !data.password) throw new Error(this.homey.__('driver.onPair.missing_secret_and_auth'))
-      else if (!data.username) throw new Error(this.homey.__('driver.onPair.missing_secret'))
-      else if (!data.password) throw new Error(this.homey.__('driver.onPair.missing_auth'))
+      if (!data.secretKey && !data.authKey) throw new Error(this.homey.__('driver.onPair.missing_secret_and_auth'))
+      else if (!data.secretKey) throw new Error(this.homey.__('driver.onPair.missing_secret'))
+      else if (!data.authKey) throw new Error(this.homey.__('driver.onPair.missing_auth'))
 
       // there's no way to know if keys are valid until device has been discovered, so we assume it is
-      return true
+      if (data.manual) {
+        this.log('driver_onPair -> login-secret-keys-post : showing add-device-manually')
+        await session.showView('add-device-manually')
+      } else {
+        this.log('driver_onPair -> login-secret-keys-post : showing list_devices')
+        await session.showView('list_devices')
+      }
+    })
+
+    session.setHandler('add-device-manually-post', async data => {
+      const device = {
+        name: data.name,
+        data: {
+          id: data.id
+        },
+        settings: {
+          ipaddress: data.ip,
+          secretKey,
+          authKey
+        }
+      }
+
+      this.log('driver_onPair -> add-device-manually-post :', device)
+      return device
     })
 
     session.setHandler('list_devices', async () => {
       const discoveryStrategy = this.getDiscoveryStrategy()
       const discoveryResults = discoveryStrategy.getDiscoveryResults()
+      const discoveryResultValues = Object.values(discoveryResults)
+      this.log('driver_onPair -> list_devices:', discoveryResultValues)
 
-      const devices = Object.values(discoveryResults).map(discoveryResult => {
-        this.log('driver_onPair -> list_devices:', discoveryResult)
+      const devices = discoveryResultValues.map(discoveryResult => {
         const name = hasValue(discoveryResult.id) ? discoveryResult.txt.name || discoveryResult.name : discoveryResult.host
         const id = hasValue(discoveryResult.id) ? discoveryResult.id : discoveryResult.txt.name || discoveryResult.name
         return {
@@ -50,6 +75,7 @@ class RemootioDriver extends Driver {
         }
       })
 
+      this.log('driver_onPair -> list_devices : devices config :', devices)
       return devices
     })
   }

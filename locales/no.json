@@ -5,6 +5,27 @@
       "missing_secret": "Fyll ut 'API Secret Key'",
       "missing_auth": "Fyll ut 'API Auth Key'"
     },
+    "pair": {
+      "addDeviceManually": {
+        "title": "Legg til enhet manuelt",
+        "name": "Navn",
+        "namePlaceholder": "Garasjedør",
+        "serialNumber": "Serial Number",
+        "ipAddress": "IP-adresse",
+        "backButton": "Tilbake",
+        "addButton": "Legg til enhet",
+        "createDeviceError": "Oppretting av enhet feilet"
+      },
+      "loginSecretKeys": {
+        "title": "Websocket API-nøkler",
+        "secretKey": "API Secret Key",
+        "authKey": "API Auth Key",
+        "manuallyButton": "Opprett enhet manuelt",
+        "findButton": "Finn enheter (mDNS)"
+      },
+      "websocketAPIPlaceholder": "Funnet i Websocket API i Remootio appen",
+      "formError": "Fyll ut påkrevde felter!"
+    },
     "timezoneLocale": "nb-NO"
   },
   "device": {

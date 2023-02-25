@@ -5,6 +5,27 @@
       "missing_secret": "Fill out 'API Secret Key'",
       "missing_auth": "Fill out 'API Auth Key'"
     },
+    "pair": {
+      "addDeviceManually": {
+        "title": "Manually add device",
+        "name": "Name",
+        "namePlaceholder": "Garage door",
+        "serialNumber": "Serial Number",
+        "ipAddress": "IP address",
+        "backButton": "Back",
+        "addButton": "Add device",
+        "createDeviceError": "Failed to add device"
+      },
+      "loginSecretKeys": {
+        "title": "Websocket API Keys",
+        "secretKey": "API Secret Key",
+        "authKey": "API Auth Key",
+        "manuallyButton": "Manually add device",
+        "findButton": "Find devices (mDNS)"
+      },
+      "websocketAPIPlaceholder": "Found in Websocket API in Remootio app",
+      "formError": "Fill out required fields!"
+    },
     "timezoneLocale": "en-US"
   },
   "device": {

@@ -50,9 +50,13 @@ This driver supports the following Output configuration:
 
 ## Pairing
 
-When adding a Remootio device to your Homey, your Remootio device(s) will be found automatically on your network with mDNS
+When adding a Remootio device to your Homey, you can choose to find it automatically on your network with mDNS, or you can add it manually
 
-When asked, input your `API Secret Key` and `API Auth Key`
+> :exclamation: Remootio3 with Software version >= 2.40 `MUST` be added manually because **mDNS** support is currently **not available** because Remootio has rewritten the Software to support `HomeKit` and in the process borked **mDNS** support
+
+- When asked, input your `API Secret Key` and `API Auth Key` -> Found in **Websocket API configuration in your Remootio app on your phone**
+- Choose `Find devices (mDNS)` to find your device(s) automatically on your network with mDNS
+- Choose `Manually add device` to manually set **Name**, **Serial Number** and **IP address** of your device
 
 ## Settings
 
@@ -85,6 +89,7 @@ These are limitations with the physical Remootio device itself!
     1. Make sure you have enabled Wi-Fi on your Remootio device
     1. Make sure your Remootio device is on the same Wi-Fi network as your Homey
     1. Make sure your Remootio device isn't already added as a device in Homey
+    1. IF your device is a Remootio3 and has software >= 2.40, the device `MUST` be added manually because **mDNS** support is currently **not available** because Remootio has rewritten the Software to support `HomeKit` and in the process borked **mDNS** support
 - `Device unavailable with error`: <b><u>Authentication or encryption error -- Remootio has disconnected. Check your WiFi connection to the device. Too many failed reconnect attempts...</u></b>
     1. Make sure you have entered the correct `API Secret Key` and `API Auth Key`.
     1. Too many failed connect attempts to a Remootio device will brake the websocket client.<br>Restarting the app or setting new auth settings for the device will create a new websocket client
@@ -99,6 +104,7 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 - 1.5.0
     - Updated hint on `left_open` trigger to show correct time range
+    - Added the possibility to manually add device (instead of mDNS) to also support Remootio3 FW >= 2.40 -> [Issue #35](https://github.com/runely/remootio-homey/issues/35)
 - 1.4.6
     - Dependency updates
 - 1.4.5

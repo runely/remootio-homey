@@ -28,8 +28,13 @@ For output configuration 3 - bruk "Remootio (Output 1: free relay output, Output
 
 Sammenkobling
 
-Dine Remootio enheter blir funnet på nettverket automatisk via mDNS når en Remootio enhet blir lagt til
-Under sammenkoblingen blir du spurt om å legge inn 'API Secret Key' og API Auth Key'
+Når du legger til en Remootio-enhet, kan du velge å finne Remootio-enhetene dine automatisk på ditt nettverk via mDNS, eller du kan legge til enheten selv
+
+MERK: Remootio3 med Software versjon >= 2.40 MÅ legges til manuelt fordi mDNS-støtte for øyeblikket ikke er tilgjengelig siden Remootio har skrevet om Softwaren til å støtte HomeKit og i prosessen ødelagt mDNS-støtten
+
+- Når du blir spurt, legg inn 'API Secret Key' og API Auth Key' -> Funnet i Websocket API i Remootio appen på din telefon
+- Velg 'Finn enheter (mDNS)' for å finne enhetene automatisk på ditt nettverk med mDNS
+- Velg 'Opprett enhet manuelt' for å manuelt opprette enheten ved å angi 'Navn', 'Serial Number' og 'IP-adresse'
 
 Reversert sensorlogikk
 

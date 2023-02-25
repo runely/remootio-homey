@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <style>
+      .add-device-manually__footer {
+        display: flex;
+        gap: 1em;
+        position: absolute;
+        bottom: 0;
+        width: 94%;
+        margin-bottom: 1.2em;
+      }
+
+      .txt_error {
+        border: 2px solid red;
+        border-radius: 0.2em;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="add-device-manually__center">
+      <div class="homey-form-group-large">
+        <label class="homey-form-label" for="name" data-i18n="driver.pair.addDeviceManually.name"></label>
+        <input class="homey-form-input-large" type="text" name="name" id="name" required="required" />
+      </div>
+      <div class="homey-form-group-large">
+        <label class="homey-form-label" for="sn" data-i18n="driver.pair.addDeviceManually.serialNumber"></label>
+        <input class="homey-form-input-large" type="text" name="sn" id="sn" required="required" />
+      </div>
+      <div class="homey-form-group-large">
+        <label class="homey-form-label" for="ip" data-i18n="driver.pair.addDeviceManually.ipAddress"></label>
+        <input class="homey-form-input-large" type="text" name="ip" id="ip" required="required" />
+      </div>
+    </div>
+
+    <div class="add-device-manually__footer">
+      <button tabindex="0" class="homey-button-primary-shadow-full" id="back" data-i18n="driver.pair.addDeviceManually.backButton"></button>
+      <button tabindex="0" class="homey-button-primary-shadow-full" id="add" data-i18n="driver.pair.addDeviceManually.addButton"></button>
+    </div>
+
+    <script type="application/javascript">
+      Homey.setTitle(Homey.__('driver.pair.addDeviceManually.title'))
+      Homey.setNavigationClose()
+      for (let inputField of document.getElementsByClassName('homey-form-input-large')) {
+        if (inputField.id === 'name') {
+          inputField.placeholder = Homey.__('driver.pair.addDeviceManually.namePlaceholder')
+        } else if (['sn', 'ip'].includes(inputField.id)) {
+          inputField.placeholder = Homey.__('driver.pair.websocketAPIPlaceholder')
+        }
+      }
+
+      document.getElementById('back').addEventListener('click', () => {
+        Homey.prevView()
+      })
+
+      document.getElementById('add').addEventListener('click', () => {
+        let error = false
+
+        if (document.getElementById('name').value === '') {
+          document.getElementById('name').parentElement.classList.add('txt_error')
+          error = true
+        } else {
+          document.getElementById('name').parentElement.classList.remove('txt_error')
+        }
+
+        if (document.getElementById('sn').value === '') {
+          document.getElementById('sn').parentElement.classList.add('txt_error')
+          error = true
+        } else {
+          document.getElementById('sn').parentElement.classList.remove('txt_error')
+        }
+
+        if (document.getElementById('ip').value === '') {
+          document.getElementById('ip').parentElement.classList.add('txt_error')
+          error = true
+        } else {
+          document.getElementById('ip').parentElement.classList.remove('txt_error')
+        }
+
+        if (error) {
+          Homey.alert(Homey.__('driver.pair.formError'))
+          return
+        } else {
+          Homey.emit('add-device-manually-post', {
+            name: document.getElementById('name').value,
+            id: document.getElementById('sn').value,
+            ip: document.getElementById('ip').value
+          }).then(function (data) {
+            Homey.createDevice(data)
+              .then(function () { Homey.done() })
+              .catch(function (err) { Homey.alert(`${Homey.__('driver.pair.addDeviceManually.createDeviceError')}: ${err}`) })
+          }).catch(function (err) {
+            Homey.alert(err)
+          })
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -28,8 +28,13 @@ For output configuration 3 - choose "Remootio (Output 1: free relay output, Outp
 
 Pairing
 
-When adding a Remootio device to your Homey, your Remootio device(s) will be found automatically on your network with mDNS
-When asked, input your 'API Secret Key' and 'API Auth Key'
+When adding a Remootio device to your Homey, you can choose to find it automatically on your network with mDNS, or you can add it manually
+
+NOTE: Remootio3 with Software version >= 2.40 MUST be added manually because mDNS support is currently not available because Remootio has rewritten the Software to support HomeKit and in the process borked mDNS support
+
+- When asked, input your 'API Secret Key' and 'API Auth Key' -> Found in Websocket API configuration in your Remootio app on your phone
+- Choose 'Find devices (mDNS)' to find your device(s) automatically on your network with mDNS
+- Choose 'Manually add device' to manually set 'Name', 'Serial Number' and 'IP address' of your device
 
 Logic flipped
 
