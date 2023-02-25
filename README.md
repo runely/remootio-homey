@@ -97,6 +97,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.5.0
+    - Updated hint on `left_open` trigger to show correct time range
 - 1.4.6
     - Dependency updates
 - 1.4.5
