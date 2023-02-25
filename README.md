@@ -105,6 +105,7 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 - 1.5.0
     - Updated hint on `left_open` trigger to show correct time range
     - Added the possibility to manually add device (instead of mDNS) to also support Remootio3 FW >= 2.40 -> [Issue #35](https://github.com/runely/remootio-homey/issues/35)
+    - Dependency updates
 - 1.4.6
     - Dependency updates
 - 1.4.5
