@@ -58,5 +58,8 @@
   },
   "1.5.0": {
     "en": "Added possibility to manually add device to also support Remootio3 FW >= 2.40. Dependency updates"
+  },
+  "1.5.1": {
+    "en": "Minimized footprint"
   }
 }
