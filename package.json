@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@types/homey": "npm:homey-apps-sdk-v3-types@0.3.5",
-    "standard": "17.0.0"
+    "standard": "17.1.0"
   },
   "dependencies": {
     "remootio-api-client": "2.0.4"
