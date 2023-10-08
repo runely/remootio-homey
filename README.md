@@ -102,6 +102,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.5.2
+    - Dependency updates
 - 1.5.1
     - Minimized footprint
     - Dependency updates
