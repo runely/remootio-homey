@@ -1,14 +1,13 @@
-'use strict';
+'use strict'
 
-const { Driver } = require('homey');
+const { Driver } = require('homey')
 
 class MyDriver extends Driver {
-
   /**
    * onInit is called when the driver is initialized.
    */
-  async onInit() {
-    this.log('MyDriver has been initialized');
+  async onInit () {
+    this.log('MyDriver has been initialized')
   }
 
   /**
@@ -16,7 +15,7 @@ class MyDriver extends Driver {
    * and the 'list_devices' view is called.
    * This should return an array with the data of devices that are available for pairing.
    */
-  async onPairListDevices() {
+  async onPairListDevices () {
     return [
       // Example device data, note that `store` is optional
       // {
@@ -28,9 +27,8 @@ class MyDriver extends Driver {
       //     address: '127.0.0.1',
       //   },
       // },
-    ];
+    ]
   }
-
 }
 
-module.exports = MyDriver;
+module.exports = MyDriver
