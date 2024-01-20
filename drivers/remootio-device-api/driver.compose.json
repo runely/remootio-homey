@@ -1,0 +1,15 @@
+{
+  "name": {
+    "en": "Remootio Device API"
+  },
+  "class": "garagedoor",
+  "capabilities": [
+    "garagedoor_closed"
+  ],
+  "connectivity": [],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  }
+}
