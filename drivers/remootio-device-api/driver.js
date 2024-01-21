@@ -1,7 +1,7 @@
 'use strict'
 
 const { Driver } = require('homey')
-const { get } = require('../../lib/device/api/device-api')
+const { query } = require('../../lib/device/api/device-api')
 /* const doSleep = require('../../lib/sleep') */
 
 class RemootioDeviceAPIDriver extends Driver {
@@ -24,7 +24,7 @@ class RemootioDeviceAPIDriver extends Driver {
       if (!data.secretKey) throw new Error(this.homey.__('driver.onPair.missing_token'))
 
       // make a GET request to the device API. If the secretKey is valid, we will receive 200 OK and info about the device
-      const deviceData = await get(secretKey)
+      const deviceData = await query(secretKey)
       this.log('DeviceData:')
       this.log(deviceData)
       if (!deviceData.success || !deviceData.data.success || !deviceData.data.deviceState || !deviceData.data.deviceState.gateName || !deviceData.data.deviceState.serialNo) {
