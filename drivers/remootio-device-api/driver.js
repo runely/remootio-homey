@@ -1,7 +1,7 @@
 'use strict'
 
 const { Driver } = require('homey')
-const axios = require('axios').default
+const { get } = require('../../lib/device/api/device-api')
 //const doSleep = require('../../lib/sleep')
 
 class RemootioDeviceAPIDriver extends Driver {
@@ -24,7 +24,7 @@ class RemootioDeviceAPIDriver extends Driver {
       if (!data.secretKey) throw new Error(this.homey.__('driver.onPair.missing_token'))
 
       // make a GET request to the device API. If the secretKey is valid, we will receive 200 OK and info about the device
-      const deviceData = await this.getRequest('https://deviceapi.remootio.com/device', secretKey)
+      const deviceData = await get(secretKey)
       this.log('DeviceData:')
       this.log(deviceData)
       if (!deviceData.success || !deviceData.data.success || !deviceData.data.deviceState || !deviceData.data.deviceState.gateName || !deviceData.data.deviceState.serialNo) {
@@ -86,41 +86,6 @@ class RemootioDeviceAPIDriver extends Driver {
       return device.remootio.isConnected
     })
   } */
-
-  async getRequest (url, token) {
-    try {
-      const options = {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      }
-
-      const { data } = await axios.get(url, options)
-      return {
-        success: true,
-        data
-      }
-    } catch (ex) {
-      console.dir(ex)
-      if (ex.response) {
-        const { status, statusText, data } = ex.response
-        return {
-          success: false,
-          status,
-          statusText,
-          data
-        }
-      } else {
-        const status = 500
-        const data = ex.toString()
-        return {
-          success: false,
-          status,
-          data
-        }
-      }
-    }
-  }
 }
 
 module.exports = RemootioDeviceAPIDriver
