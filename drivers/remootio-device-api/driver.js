@@ -29,7 +29,7 @@ class RemootioDeviceAPIDriver extends Driver {
       this.log(deviceData)
       if (!deviceData.success || !deviceData.data.success || !deviceData.data.deviceState || !deviceData.data.deviceState.gateName || !deviceData.data.deviceState.serialNo) {
         this.log(`[ERROR] - driver_onPair -> login-secret-key-post -> device-api communication failed : ${deviceData.status} -- ${deviceData.statusText} --`, deviceData.data)
-        throw new Error('Invalid token')
+        throw new Error(`Invalid token:\r\n${deviceData.status} : ${deviceData.statusText}`)
       }
 
       const { deviceState: { gateName, serialNo } } = deviceData.data
