@@ -2,7 +2,7 @@
 
 const { Driver } = require('homey')
 const { get } = require('../../lib/device/api/device-api')
-//const doSleep = require('../../lib/sleep')
+/* const doSleep = require('../../lib/sleep') */
 
 class RemootioDeviceAPIDriver extends Driver {
   /**
