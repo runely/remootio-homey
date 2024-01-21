@@ -3,7 +3,8 @@
     "onPair": {
       "missing_secret_and_auth": "Fyll ut 'API Secret Key' og 'API Auth Key'",
       "missing_secret": "Fyll ut 'API Secret Key'",
-      "missing_auth": "Fyll ut 'API Auth Key'"
+      "missing_auth": "Fyll ut 'API Auth Key'",
+      "missing_token": "Fyll ut 'Device API token'"
     },
     "pair": {
       "addDeviceManually": {
@@ -23,7 +24,14 @@
         "manuallyButton": "Opprett enhet manuelt",
         "findButton": "Finn enheter (mDNS)"
       },
+      "loginSecretKey": {
+        "title": "Device API token",
+        "subtitle": "En App-Free token må være opprettet i Remootio appen på telefonen din før du fortsetter.<br />Instruksjoner her: <a href='https://github.com/runely/remootio-homey/tree/remootio-device-api?tab=readme-ov-file#create-app-free-token' target='_new'>Opprette App-Free token</a>",
+        "secretKey": "Device API token",
+        "connectButton": "Koble til enhet"
+      },
       "websocketAPIPlaceholder": "Funnet i Websocket API i Remootio appen",
+      "deviceAPIPlaceholder": "App-free token",
       "formError": "Fyll ut påkrevde felter!"
     },
     "timezoneLocale": "nb-NO"

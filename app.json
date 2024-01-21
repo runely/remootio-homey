@@ -203,6 +203,43 @@
   },
   "drivers": [
     {
+      "name": {
+        "en": "Remootio Device API"
+      },
+      "class": "garagedoor",
+      "capabilities": [
+        "garagedoor_closed"
+      ],
+      "connectivity": [],
+      "icon": "/drivers/remootio-device-api/assets/icon.svg",
+      "images": {
+        "small": "/drivers/remootio-device-api/assets/images/small.png",
+        "large": "/drivers/remootio-device-api/assets/images/large.png",
+        "xlarge": "/drivers/remootio-device-api/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "login-secret-key"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices",
+            "prev": "login-secret-key"
+          },
+          "options": {
+            "singular": true
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "remootio-device-api"
+    },
+    {
       "discovery": "remootio",
       "class": "garagedoor",
       "icon": "/drivers/remootio-fg/assets/icon.svg",

@@ -3,7 +3,8 @@
     "onPair": {
       "missing_secret_and_auth": "Fill out 'API Secret Key' and 'API Auth Key'",
       "missing_secret": "Fill out 'API Secret Key'",
-      "missing_auth": "Fill out 'API Auth Key'"
+      "missing_auth": "Fill out 'API Auth Key'",
+      "missing_token": "Fill out 'Device API token'"
     },
     "pair": {
       "addDeviceManually": {
@@ -23,7 +24,14 @@
         "manuallyButton": "Manually add device",
         "findButton": "Find devices (mDNS)"
       },
+      "loginSecretKey": {
+        "title": "Device API token",
+        "subtitle": "An App-Free token must be created in the Remootio app on your phone before continuing.<br />Instructions here: <a href='https://github.com/runely/remootio-homey/tree/remootio-device-api?tab=readme-ov-file#create-app-free-token' target='_new'>Creating App-Free token</a>",
+        "secretKey": "Device API token",
+        "connectButton": "Connect to device"
+      },
       "websocketAPIPlaceholder": "Found in Websocket API in Remootio app",
+      "deviceAPIPlaceholder": "App-free token",
       "formError": "Fill out required fields!"
     },
     "timezoneLocale": "en-US"
