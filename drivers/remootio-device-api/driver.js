@@ -48,8 +48,8 @@ class RemootioDeviceAPIDriver extends Driver {
           data: {
             id: serialNumber
           },
-          settings: {
-            secretKey
+          store: {
+            token: secretKey
           }
         }
       ]
