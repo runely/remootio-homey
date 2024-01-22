@@ -16,6 +16,8 @@ class RemootioDeviceAPIDriver extends Driver {
     let secretKey = ''
     let deviceName = ''
     let serialNumber = ''
+    let keyNum = 0
+    let deviceType = ''
 
     session.setHandler('login-secret-key-post', async data => {
       secretKey = data.secretKey
@@ -32,9 +34,11 @@ class RemootioDeviceAPIDriver extends Driver {
         throw new Error(`Invalid token:\r\n${deviceData.status} : ${deviceData.statusText}`)
       }
 
-      const { deviceState: { gateName, serialNo } } = deviceData.data
+      const { deviceState: { gateName, serialNo, keyNumber, type } } = deviceData.data
       deviceName = gateName
       serialNumber = serialNo
+      keyNum = keyNumber
+      deviceType = type
       this.log(`driver_onPair -> login-secret-key-post -> device-api communication success : I will add device with name '${deviceName}' and serialNo '${serialNumber}'`)
       await session.showView('list_devices')
     })
@@ -47,6 +51,11 @@ class RemootioDeviceAPIDriver extends Driver {
           name: deviceName,
           data: {
             id: serialNumber
+          },
+          settings: {
+            serialNumber,
+            keyNumber: keyNum,
+            remootioType: deviceType
           },
           store: {
             token: secretKey

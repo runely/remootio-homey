@@ -1,0 +1,93 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Connection settings",
+      "no": "Tilkoblingsinnstillinger"
+    },
+    "children": [
+      {
+        "id": "queryInterval",
+        "type": "number",
+        "label": {
+          "en": "Device status update interval",
+          "no": "Intervall for oppdatering av enhetsstatus"
+        },
+        "min": 2,
+        "max": 1440,
+        "value": 5,
+        "hint": {
+          "en": "Number of minutes between each time a query will be sent to the Device API to check device status",
+          "no": "Antall minutter mellom hver gang en spørring sendes til Device API'et for å sjekke enhetsstatus"
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Device settings",
+      "no": "Enhetsinnstillinger"
+    },
+    "children": [
+      {
+        "id": "logicFlipped",
+        "type": "checkbox",
+        "label": {
+          "en": "Is sensor logic flipped",
+          "no": "Er sensorlogikken reversert"
+        },
+        "value": false,
+        "hint": {
+          "en": "If you have flipped the sensor logic on your Remootio, turn this on",
+          "no": "Dersom du har reversert sensorlogikken i Remootio, aktiver denne"
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Hardware information",
+      "no": "Maskinvareinformasjon"
+    },
+    "children": [
+      {
+        "id": "keyNumber",
+        "type": "number",
+        "label": {
+          "en": "App-Free key index",
+          "no": "App-Free nøkkelindeks"
+        },
+        "hint": {
+          "en": "App-Free key index used (added on pair)",
+          "no": "App-Free nøkkelindeks i bruk (lagt til under parring)"
+        }
+      },
+      {
+        "id": "serialNumber",
+        "type": "text",
+        "label": {
+          "en": "Serial number",
+          "no": "Serienummer"
+        },
+        "hint": {
+          "en": "Serial number on Remootio device (added on pair)",
+          "no": "Serienummer på Remootio enhet (lagt til under parring)"
+        }
+      },
+      {
+        "id": "remootioType",
+        "type": "text",
+        "label": {
+          "en": "Remootio version",
+          "no": "Remootio versjon"
+        },
+        "hint": {
+          "en": "Remootio version (added on pair)",
+          "no": "Remootio versjon (lagt til under parring)"
+        }
+      }
+    ]
+  }
+]
