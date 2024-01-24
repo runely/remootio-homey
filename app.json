@@ -242,8 +242,8 @@
         {
           "type": "group",
           "label": {
-            "en": "Connection settings",
-            "no": "Tilkoblingsinnstillinger"
+            "en": "API settings",
+            "no": "API-innstillinger"
           },
           "children": [
             {
@@ -253,34 +253,12 @@
                 "en": "Device status update interval",
                 "no": "Intervall for oppdatering av enhetsstatus"
               },
-              "min": 2,
+              "min": 1,
               "max": 1440,
-              "value": 5,
+              "value": 15,
               "hint": {
                 "en": "Number of minutes between each time a query will be sent to the Device API to check device status",
                 "no": "Antall minutter mellom hver gang en spørring sendes til Device API'et for å sjekke enhetsstatus"
-              }
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Device settings",
-            "no": "Enhetsinnstillinger"
-          },
-          "children": [
-            {
-              "id": "logicFlipped",
-              "type": "checkbox",
-              "label": {
-                "en": "Is sensor logic flipped",
-                "no": "Er sensorlogikken reversert"
-              },
-              "value": false,
-              "hint": {
-                "en": "If you have flipped the sensor logic on your Remootio, turn this on",
-                "no": "Dersom du har reversert sensorlogikken i Remootio, aktiver denne"
               }
             }
           ]
@@ -293,15 +271,27 @@
           },
           "children": [
             {
-              "id": "keyNumber",
-              "type": "number",
+              "id": "deviceName",
+              "type": "text",
               "label": {
-                "en": "App-Free key index",
-                "no": "App-Free nøkkelindeks"
+                "en": "Device name",
+                "no": "Enhetsnavn"
               },
               "hint": {
-                "en": "App-Free key index used (added on pair)",
-                "no": "App-Free nøkkelindeks i bruk (lagt til under parring)"
+                "en": "added on pair, and will be updated on each query interval",
+                "no": "lagt til under parring, og vil bli oppdatert ved hver oppdateringsintervall"
+              }
+            },
+            {
+              "id": "outputConfig",
+              "type": "text",
+              "label": {
+                "en": "Output configuration",
+                "no": "Utgangskonfigurasjon"
+              },
+              "hint": {
+                "en": "added on pair, and will be updated on each query interval",
+                "no": "lagt til under parring, og vil bli oppdatert ved hver oppdateringsintervall"
               }
             },
             {
@@ -312,8 +302,20 @@
                 "no": "Serienummer"
               },
               "hint": {
-                "en": "Serial number on Remootio device (added on pair)",
-                "no": "Serienummer på Remootio enhet (lagt til under parring)"
+                "en": "added on pair, and will be updated on each query interval",
+                "no": "lagt til under parring, og vil bli oppdatert ved hver oppdateringsintervall"
+              }
+            },
+            {
+              "id": "keyNumber",
+              "type": "number",
+              "label": {
+                "en": "App-Free key index used",
+                "no": "App-Free nøkkelindeks i bruk"
+              },
+              "hint": {
+                "en": "added on pair, and will be updated on each query interval",
+                "no": "lagt til under parring, og vil bli oppdatert ved hver oppdateringsintervall"
               }
             },
             {
@@ -324,8 +326,8 @@
                 "no": "Remootio versjon"
               },
               "hint": {
-                "en": "Remootio version (added on pair)",
-                "no": "Remootio versjon (lagt til under parring)"
+                "en": "added on pair, and will be updated on each query interval",
+                "no": "lagt til under parring, og vil bli oppdatert ved hver oppdateringsintervall"
               }
             }
           ]
