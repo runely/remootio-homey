@@ -2,7 +2,11 @@
 
 Make your Homey even smarter by controlling your gates and garage doors with Remootio
 
-## Prerequisites :man_mechanic:
+## Websocket API
+
+If you are or want to use Device API, go to Device API instead
+
+### Prerequisites :man_mechanic:
 
 - **Your Remootio device is already set up**
 - **Make sure your Remootio and Homey is on the same network / VLAN**
@@ -15,22 +19,22 @@ Make your Homey even smarter by controlling your gates and garage doors with Rem
     - **Output 1 & Output 2: gate impulse control**
     - **Output 1: gate impulse control Output 2: disabled**
 
-### Websocket API
+#### Websocket API
 
 The API in the Remootio must be enabled before adding Remootio device(s) to Homey. Instructions [here](https://documents.remootio.com/docs/WebsocketApiDocs.pdf)
 
 Take a note of the `API Secret Key` and `API Auth Key` shown when enabling the API
 
-### Which driver to use
+#### Which driver to use
 
-#### Remootio (gate impulse control)
+##### Remootio (gate impulse control)
 
 This driver supports the following Output configurations:
 - **Output 1: disabled Output 2: gate impulse control**
 - **Output 1 & Output 2: gate impulse control**
 - **Output 1: gate impulse control Output 2: disabled**
 
-#### Remootio (Output 1: gate impulse control, Output 2: free relay output)
+##### Remootio (Output 1: gate impulse control, Output 2: free relay output)
 
 This driver supports the following Output configuration:
 - **Output 1: gate impulse control Output 2: free relay output**
@@ -39,7 +43,7 @@ This driver supports the following Output configuration:
 
 > **Output 2** will be a stateless toggle (Homey will show different states when toggled, but this state don't necessarily reflect the actual state for **Output 2**)
 
-#### Remootio (Output 1: free relay output, Output 2: gate impulse control)
+##### Remootio (Output 1: free relay output, Output 2: gate impulse control)
 
 This driver supports the following Output configuration:
 - **Output 1: free relay output Output 2: gate impulse control**
@@ -48,7 +52,7 @@ This driver supports the following Output configuration:
 
 > **Output 1** will be a stateless toggle (Homey will show different states when toggled, but this state don't necessarily reflect the actual state for **Output 1**)
 
-## Pairing
+##### Pairing
 
 When adding a Remootio device to your Homey, you can choose to find it automatically on your network with mDNS, or you can add it manually
 
@@ -58,13 +62,13 @@ When adding a Remootio device to your Homey, you can choose to find it automatic
 - Choose `Find devices (mDNS)` to find your device(s) automatically on your network with mDNS
 - Choose `Manually add device` to manually set **Name**, **Serial Number** and **IP address** of your device
 
-## Settings
+###### Settings
 
-### Flipped logic
+**Flipped logic**
 
 If you have flipped the logic (in the Remootio app) used on the sensor connected to your Remootio device, you must set `Is sensor logic flipped` to `yes` in the Remootio device settings in Homey.
 
-## Troubleshooting
+###### Troubleshooting
 
 First, consider this:
 ```
@@ -88,11 +92,71 @@ These are limitations with the physical Remootio device itself!
     1. Make sure your Remootio device is successfully setup
     1. Make sure you have enabled Wi-Fi on your Remootio device
     1. Make sure your Remootio device is on the same Wi-Fi network as your Homey
-    1. Make sure your Remootio device isn't already added as a device in Homey
+    1. Make sure your Remootio device isn't already added as a device in Homey (serialnumber on the device is used as an identifier, and will only be allowed to be added once)
     1. IF your device is a Remootio3 and has software >= 2.40, the device `MUST` be added manually because **mDNS** support is currently **not available** because Remootio has rewritten the Software to support `HomeKit` and in the process borked **mDNS** support
 - `Device unavailable with error`: <b><u>Authentication or encryption error -- Remootio has disconnected. Check your WiFi connection to the device. Too many failed reconnect attempts...</u></b>
     1. Make sure you have entered the correct `API Secret Key` and `API Auth Key`.
     1. Too many failed connect attempts to a Remootio device will brake the websocket client.<br>Restarting the app or setting new auth settings for the device will create a new websocket client
+
+For any other issues, see [Remootio Installation Guide](https://documents.remootio.com/docs/Remootio_Installation_Guide.pdf) for installation instructions and troubleshooting
+
+## Device API
+
+If you are or want to use Websocket API, go to Websocket API instead
+
+### Prerequisites for Device API :man_mechanic:
+
+- **Your Remootio device is already set up**
+- **For the Device API your Homey and Remootio can be on different LAN's or WAN's**
+- **The status sensor is installed and enabled in the Remootio app (Homey needs to know the current state of your gate/garage door)**
+- ***Output configuration* for your Remootio device *MUST* be set to one of these:**
+    - **Output 1: disabled Output 2: gate impulse control**
+    - **Output 1: gate impulse control Output 2: free relay output**
+    - **Output 1: free relay output Output 2: gate impulse control**
+    - **Output 1 & Output 2: gate impulse control**
+    - **Output 1: gate impulse control Output 2: disabled**
+
+#### Device API
+
+The Device API is hosted on Remootio's servers, so your Remootio device must have internet access and be reachable by the Device API
+
+To allow the Device API to control your Remootio device you must setup an App-Free key through the Remootio app on your phone:
+- Go to shared keys
+- Click `Share a new key` and choose `Share unique key (recommended)`
+- Give the key a meaningful name
+- On the next screen click on `App-free key` and click on `Share link`
+- Copy only the `token` value from the URL. You must add this value to the Remootio app on Homey under "pairing"
+
+##### Which driver to use
+
+###### Remootio Device API
+
+This driver is the only driver that supports the Device API of Remootio.
+
+##### Pairing
+
+When adding a Remootio device to your Homey, copy in the `token` value found in the previous steps. The pairing process will query the Device API using the `token` value and find info about the device.
+
+###### Settings
+
+**Device status update interval**
+
+Number of minutes between each time a query is sent to the Device API to check device status.
+
+###### Troubleshooting
+
+- `Device doesn't change status when gate/garage door is opened/closed externally (by button or Remootio app etc.)`
+    1. You might have set the setting **Device status update interval** to a too high interval
+    1. Keep in mind that when changing the gate/garage door status externally, the Remootio app in Homey wont know this until it queries the Device API and receives the new status.
+- `Device not found in pairing`
+    1. Make sure your Remootio device is successfully setup
+    1. Make sure you have enabled Wi-Fi on your Remootio device
+    1. Make sure you have successfully created an App-Free key, and that key's `token` value is actually used in the Remootio app in Homey
+    1. Make sure your Remootio device isn't already added as a device in Homey (serialnumber on the device is used as an identifier, and will only be allowed to be added once)
+- `Device unavailable with error`: <b><u>Device API not reachable : ...</u></b>
+    1. Make sure your Remootio device has WiFi enabled and has internet access
+- `Device unavailable with error`: <b><u>Device API query failed : ...</u></b>
+    1. Make sure the `token` value you have added is working. You can test the token by visiting this Remootio site and use the token. If you can connect to your device, the token is valid: https://device.remootio.com/
 
 For any other issues, see [Remootio Installation Guide](https://documents.remootio.com/docs/Remootio_Installation_Guide.pdf) for installation instructions and troubleshooting
 
@@ -102,6 +166,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.6.0
+    - Added new driver that uses the `Device API` from Remootio allowing your Homey and your Remootio device to be on different LAN's or WAN's
 - 1.5.2
     - Dependency updates
 - 1.5.1

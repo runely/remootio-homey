@@ -1,6 +1,6 @@
 Gir Homey flytkort for å samhandle med dine garasjeporter
 
-Forutsetninger
+Forutsetninger for Websocket API
 
 - Din Remootio er ferdig satt opp
 - Remootio og Homey må være på sammme nettverk / VLAN
@@ -39,5 +39,47 @@ MERK: Remootio3 med Software versjon >= 2.40 MÅ legges til manuelt fordi mDNS-s
 Reversert sensorlogikk
 
 Dersom du har reversert sensorlogikken i Remootio, må du sette 'Er sensorlogikken reversert' til 'Ja' i Remootio enhetsinstillingene i Homey
+
+For ytterligere dokumentasjon eller feilsøking, sjekk ut GitHub-siden
+
+
+Forutsetninger for Device API
+
+- Din Remootio er ferdig satt opp
+- Din Homey og din Remootio enhet kan være på forskjellige LAN eller WAN
+- Statussensoren er installert og aktivert i Remootio appen (Homey må kunne vite nåværende status på dine garasjeporter)
+- "Output configuration" for din Remootio MÅ være stilt inn på en av disse:
+  1: Output 1: disabled Output 2: gate impulse control
+  2: Output 1: gate impulse control Output 2: free relay output
+  3: Output 1: free relay output Output 2: gate impulse control
+  4: Output 1 & Output 2: gate impulse control
+  5: Output 1: gate impulse control Output 2: disabled
+
+Device API
+
+Device API'et er hostet på Remootio's servere, så din Remootio enhet må ha tilgang til internett og kunne nås av Device API'et
+
+For å tillate at Device API'et kan kontrollere din Remootio enhet, må du sette opp en App-Free key gjennom Remootio app'en på din telefon:
+- Gå til shared keys
+- Klikk på 'Share a new key' og velg 'Share unique key (recommended)'
+- Gi nøkkelen et meningsfullt navn
+- På neste skjerm, klikk på 'App-free key' og klikk på 'Share link'
+- Kopier bare 'token'-verdien fra URL'en. Denne verdien skal du legge til i Remootio app'en på Homey under "parring"
+
+Hvilken driver bør jeg bruke
+
+Remootio Device API
+
+Denne driveren er den eneste driveren som supporterer Device API'et til Remootio.
+
+Parring
+
+Når du legger til Remootio enheten til din Homey, kopier inn 'token'-verdien funnet i de foregående stegene. Parringsprosessen vil spørre Device API'et ved hjelp av 'token'-verdien og finne info om enheten.
+
+Innstillinger
+
+Intervall for oppdatering av enhetsstatus
+
+Antall minutter mellom hver gang en spørring sendes til Device API'et for å sjekke enhetsstatus.
 
 For ytterligere dokumentasjon eller feilsøking, sjekk ut GitHub-siden
