@@ -59,6 +59,13 @@ Device API
 
 Device API'et er hostet på Remootio's servere, så din Remootio enhet må ha tilgang til internett og kunne nås av Device API'et
 
+VIKTIG: Device API'et er begrenset til 300 forespørsler per 20 dager (dette er Remootios grenser!). Dette betyr at du bør kunne åpne og lukke porten/garasjedøren din rundt 6 ganger om dagen.
+Hvis du overskrider denne grensen vil du ikke kunne sende forespørsler til Device API'et på en stund (usikker på tidsrammen)!
+
+VIKTIG: Gitt den lave grensen på Device API'et, vil Remootio-appen bare spørre Device API'et for status etter at den har blitt endret i Remootio-appen. Dette for å sikre at Remootio-appen har samme status som Remootio-enheten.
+
+VIKTIG: Hvis porten/garasjeporten betjenes utenfor Remootio-appen, vil statusen i Remootio-appen IKKE gjenspeile dette før den er endret i Remootio-appen i Homey.
+
 For å tillate at Device API'et kan kontrollere din Remootio enhet, må du sette opp en App-Free key gjennom Remootio app'en på din telefon:
 - Gå til shared keys
 - Klikk på 'Share a new key' og velg 'Share unique key (recommended)'
@@ -78,8 +85,9 @@ Når du legger til Remootio enheten til din Homey, kopier inn 'token'-verdien fu
 
 Innstillinger
 
-Intervall for oppdatering av enhetsstatus
+Sekunder for statusendring
 
-Antall minutter mellom hver gang en spørring sendes til Device API'et for å sjekke enhetsstatus.
+Antall sekunder før porten/garasjeporten har endret status etter betjening
+En forespørsel sendes til device api'et etter dette antallet sekunder for å angi riktig enhetsstatus. Dette gjøres for å sikre at enhetsstatusen har samme status som Remootio-enheten.
 
 For ytterligere dokumentasjon eller feilsøking, sjekk ut GitHub-siden

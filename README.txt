@@ -59,6 +59,13 @@ Device API
 
 The Device API is hosted on Remootio's servers, so your Remootio device must have internet access and be reachable by the Device API
 
+IMPORTANT: The Device API is limited to 300 requests per 20 days (this is Remootio's limits!). This means you should be able to open and close your gate/garage door around 6 times a day.
+If you exceed this limit you will not be able to send requests to the Device API for a while (not sure about the time frame)!
+
+IMPORTANT: Given the low limit on the Device API, the Remootio app will only query the Device API for its status after it has been toggled. This to make sure the Remootio app has the same status as the Remootio device.
+
+IMPORTANT: If the gate/garage door is operated outside the Remootio app, the status in the Remootio app will NOT reflect this until it's been toggled in the Remootio app in Homey.
+
 To allow the Device API to control your Remootio device you must setup an App-Free key through the Remootio app on your phone:
 - Go to shared keys
 - Click 'Share a new key' and choose 'Share unique key (recommended)'
@@ -78,8 +85,9 @@ When adding the Remootio device to your Homey, copy in the 'token' value found i
 
 Settings
 
-Device status update interval
+Seconds for status change
 
-Number of minutes between each time a query is sent to the Device API to check device status.
+Number of seconds before the gate/garage door has changed status after being operated.
+A query is sent to the device api after this amount of seconds to set the correct device status. This is done to make sure the device status has the same status as the Remootio device.
 
 For additional documentation or troubleshooting, check out the GitHub page

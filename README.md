@@ -120,6 +120,12 @@ If you are or want to use Websocket API, go to Websocket API instead
 
 The Device API is hosted on Remootio's servers, so your Remootio device must have internet access and be reachable by the Device API
 
+:exclamation: The Device API is limited to 300 requests per 20 days (this is Remootio's limits!). This means you should be able to open and close your gate/garage door around 6 times a day.<br />If you exceed this limit you will not be able to send requests to the Device API for a while (not sure about the time frame)!
+
+:exclamation: Given the low limit on the Device API, the Remootio app will only query the Device API for its status after it has been toggled. This to make sure the Remootio app has the same status as the Remootio device.
+
+:exclamation: If the gate/garage door is operated outside the Remootio app, the status in the Remootio app will NOT reflect this until it's been toggled in the Remootio app in Homey.
+
 To allow the Device API to control your Remootio device you must setup an App-Free key through the Remootio app on your phone:
 - Go to shared keys
 - Click `Share a new key` and choose `Share unique key (recommended)`
@@ -139,22 +145,22 @@ When adding a Remootio device to your Homey, copy in the `token` value found in 
 
 ###### Settings
 
-**Device status update interval**
+**Seconds for status change**
 
-Number of minutes between each time a query is sent to the Device API to check device status.
+Number of seconds before the gate/garage door has changed status after being operated.<br />A query is sent to the device api after this amount of seconds to set the correct device status. This is done to make sure the device status has the same status as the Remootio device.
 
 ###### Troubleshooting
 
 - `Device doesn't change status when gate/garage door is opened/closed externally (by button or Remootio app etc.)`
-    1. You might have set the setting **Device status update interval** to a too high interval
-    1. Keep in mind that when changing the gate/garage door status externally, the Remootio app in Homey wont know this until it queries the Device API and receives the new status.
+    1. This is by design. The device API is limited to 300 requests per 20 days, so in order not to go beyond the limit, the device status is not updated automatically but only when the device status changes from the Remootio app in Homey
 - `Device not found in pairing`
     1. Make sure your Remootio device is successfully setup
     1. Make sure you have enabled Wi-Fi on your Remootio device
-    1. Make sure you have successfully created an App-Free key, and that key's `token` value is actually used in the Remootio app in Homey
+    1. Make sure you have successfully created an App-Free key, and that key's `token` value is actually used in the Remootio app in Homey (Repair)
     1. Make sure your Remootio device isn't already added as a device in Homey (serialnumber on the device is used as an identifier, and will only be allowed to be added once)
 - `Device unavailable with error`: <b><u>Device API not reachable : ...</u></b>
     1. Make sure your Remootio device has WiFi enabled and has internet access
+    1. If the error is `429 - Too Many Requests`, you have exceeded the Device API of 300 requests and must wait until Remootio lets you back in!
 - `Device unavailable with error`: <b><u>Device API query failed : ...</u></b>
     1. Make sure the `token` value you have added is working. You can test the token by visiting this Remootio site and use the token. If you can connect to your device, the token is valid: https://device.remootio.com/
 
