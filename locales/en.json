@@ -28,7 +28,8 @@
         "title": "Device API token",
         "subtitle": "An App-Free token must be created in the Remootio app on your phone before continuing.<br />Instructions here: <a href='https://github.com/runely/remootio-homey/tree/main#device-api-1' target='_new'>Creating App-Free token</a>",
         "secretKey": "Device API token",
-        "connectButton": "Connect to device"
+        "connectButton": "Connect to device",
+        "repairButton": "Repair"
       },
       "websocketAPIPlaceholder": "Found in Websocket API in Remootio app",
       "deviceAPIPlaceholder": "App-free token",

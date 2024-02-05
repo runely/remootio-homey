@@ -72,33 +72,43 @@ class RemootioDeviceAPIDriver extends Driver {
     })
   }
 
-  /* async onRepair (session, device) {
-    let secretKey = ''
-    let authKey = ''
+  async onRepair (session, device) {
+    session.setHandler('login-secret-key-post', async data => {
+      const deviceName = device.getName()
+      const serialNumber = device.getSetting('serialNumber')
+      this.log(`[${deviceName}][${serialNumber}] - driver_onRepair -> login-secret-key-post :`, data)
 
-    session.setHandler('login', async data => {
-      secretKey = data.username
-      authKey = data.password
+      if (!data.secretKey) throw new Error(this.homey.__('driver.onPair.missing_token'))
 
-      if (!data.username && !data.password) throw new Error(this.homey.__('driver.onPair.missing_secret_and_auth'))
-      else if (!data.username) throw new Error(this.homey.__('driver.onPair.missing_secret'))
-      else if (!data.password) throw new Error(this.homey.__('driver.onPair.missing_auth'))
+      // make a GET request to the device API. If the secretKey is valid, we will receive 200 OK and info about the device
+      const deviceData = await query(data.secretKey)
+      this.log(`[${deviceName}][${serialNumber}] - DeviceData :`, deviceData)
+      if (!deviceData.success || !deviceData.data.success || !deviceData.data.deviceState || !deviceData.data.deviceState.gateName || !deviceData.data.deviceState.serialNo) {
+        this.log(`[${deviceName}][${serialNumber}] - [ERROR] - driver_onRepair -> login-secret-key-post -> device-api communication failed : ${deviceData.status} -- ${deviceData.statusText} --`, deviceData.data)
+        throw new Error(`Invalid token:\r\n${deviceData.status} : ${deviceData.statusText}`)
+      }
 
-      this.log('driver_onRepair -> login : isConnected before repair :', device.remootio.isConnected)
-      device.setSettings({
-        secretKey,
-        authKey
-      })
+      const { deviceState: { outputConfig, gateName, serialNo, keyNumber, type } } = deviceData.data
+      const deviceSettings = {
+        outputConfig,
+        deviceName: gateName,
+        serialNumber: serialNo,
+        keyNumber: keyNumber.toString(),
+        remootioType: type
+      }
+      this.log(`[${deviceName}][${serialNumber}] - driver_onRepair -> login-secret-key-post -> Updating device hardware info :`, deviceSettings)
+      await device.setSettings(deviceSettings)
 
-      device.removeDevice()
-      await doSleep(device.homey, 150)
-      device.initialize()
-      await doSleep(device.homey, 250)
+      this.log(`[${deviceName}][${serialNumber}] - driver_onRepair -> login-secret-key-post -> Updating token value in store`)
+      await device.setStoreValue('token', data.secretKey)
 
-      this.log('driver_onRepair -> login : isConnected after repair :', device.remootio.isConnected)
-      return device.remootio.isConnected
+      this.log(`[${deviceName}][${serialNumber}] - driver_onRepair -> login-secret-key-post -> Setting device as available`)
+      await device.setAvailable()
+
+      this.log(`[${deviceName}][${serialNumber}] - driver_onRepair -> login-secret-key-post -> Repair finished successfully`)
+      await session.done()
     })
-  } */
+  }
 }
 
 module.exports = RemootioDeviceAPIDriver

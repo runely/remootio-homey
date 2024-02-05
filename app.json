@@ -237,6 +237,11 @@
           "template": "add_devices"
         }
       ],
+      "repair": [
+        {
+          "id": "login-secret-key"
+        }
+      ],
       "id": "remootio-device-api",
       "settings": [
         {
