@@ -64,5 +64,8 @@
   },
   "1.5.2": {
     "en": "Dependency updates"
+  },
+  "1.6.0": {
+    "en": "Added driver 'Remootio Device API' which uses Remootio's Device API instead of WebSocket API. Read the readme to see differences and limitations"
   }
 }
