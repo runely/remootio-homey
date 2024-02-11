@@ -172,6 +172,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.6.1
+    - Dependency updates
 - 1.6.0
     - Added new driver that uses the `Device API` from Remootio allowing your Homey and your Remootio device to be on different LAN's or WAN's
 - 1.5.2
