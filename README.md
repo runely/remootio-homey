@@ -172,6 +172,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.6.2
+    - Dependency updates
 - 1.6.1
     - Dependency updates
 - 1.6.0
