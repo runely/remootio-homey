@@ -172,6 +172,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.7.0
+    - Added action cards `Close if open` and `Open if closed` for **Remootio Device API**
 - 1.6.2
     - Dependency updates
 - 1.6.1

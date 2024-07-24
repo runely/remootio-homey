@@ -1,0 +1,19 @@
+{
+  "id": "garagedoor_open_if_closed",
+  "highlight": true,
+  "title": {
+    "en": "Open if closed",
+    "no": "Åpne hvis lukket"
+  },
+  "hint": {
+    "en": "Will fetch garage door status from the API and open it if it's closed\n\nOnly applicable for Remootio Device API",
+    "no": "Vil hente status for garasjeporten fra API'et og åpne den hvis den er lukket\n\nGjelder kun for Remootio Device API"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "class_id=garagedoor&driver_id=remootio-device-api"
+    }
+  ]
+}

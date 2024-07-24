@@ -73,6 +73,57 @@ class Remootio extends Homey.App {
         device.triggerCapabilityListener(id, !device.getFreeRelayState())
         return true
       })
+
+    // add action listeners (only applicable for driver remootio-device-api
+    this.homey.flow.getActionCard('garagedoor_close_if_open')
+      .registerRunListener(async args => {
+        const { device } = args
+        const { success, closed } = await device.getApiDeviceStatus()
+        if (!success) {
+          device.log(`${device.getName()} -- garagedoor_close_if_open failed to fetch status`)
+          return false
+        }
+
+        if (!closed) {
+          const garageCapabilityId = device.getGarageDoorCapabilityId()
+          if (garageCapabilityId) {
+            device.log(`${device.getName()} -- garagedoor_close_if_open called`)
+            device.triggerCapabilityListener(garageCapabilityId, false)
+            return true
+          } else {
+            device.log(`${device.getName()} -- garagedoor_close_if_open -- Garagedoor capability not found`)
+            return false
+          }
+        }
+
+        device.log(`${device.getName()} -- garagedoor_close_if_open did nothing since its already closed`)
+        return true
+      })
+
+      this.homey.flow.getActionCard('garagedoor_open_if_closed')
+      .registerRunListener(async args => {
+        const { device } = args
+        const { success, closed } = await device.getApiDeviceStatus()
+        if (!success) {
+          device.log(`${device.getName()} -- garagedoor_open_if_closed failed to fetch status`)
+          return false
+        }
+
+        if (closed) {
+          const garageCapabilityId = device.getGarageDoorCapabilityId()
+          if (garageCapabilityId) {
+            device.log(`${device.getName()} -- garagedoor_open_if_closed called`)
+            device.triggerCapabilityListener(garageCapabilityId, false)
+            return true
+          } else {
+            device.log(`${device.getName()} -- garagedoor_open_if_closed -- Garagedoor capability not found`)
+            return false
+          }
+        }
+
+        device.log(`${device.getName()} -- garagedoor_open_if_closed did nothing since its already open`)
+        return true
+      })
   }
 }
 
