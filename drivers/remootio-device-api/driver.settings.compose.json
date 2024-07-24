@@ -42,8 +42,8 @@
           "no": "timer"
         },
         "hint": {
-          "en": "Number of hours between each query for gate/garage door status. Set to 0 to disable automatic status queries",
-          "no": "Antall timer mellom hver statusspørring for porten/garasjeporten. Sett til 0 for å deaktivere automatisk statusspørring"
+          "en": "Number of hours between each query for gate/garage door status. Set to 0 to disable automatic status queries\n\nAs Remootios Device API has a very low request limit, use this setting with caution!",
+          "no": "Antall timer mellom hver statusspørring for porten/garasjeporten. Sett til 0 for å deaktivere automatisk statusspørring\n\nSiden Remootios Device API har en veldig lav forespørselsgrense, bruk denne innstillingen med forsiktighet!"
         }
       }
     ]

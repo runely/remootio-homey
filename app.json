@@ -133,8 +133,8 @@
           "no": "Lukk hvis åpen"
         },
         "hint": {
-          "en": "Will fetch garage door status from the API and close it if it's open\n\nOnly applicable for Remootio Device API",
-          "no": "Vil hente status for garasjeporten fra API'et og lukke den hvis den er åpen\n\nGjelder kun for Remootio Device API"
+          "en": "Will fetch garage door status from the API and close it if it's open\n\nOnly applicable for Remootio Device API\n\nAs Remootios Device API has a very low request limit, use this card with caution!",
+          "no": "Vil hente status for garasjeporten fra API'et og lukke den hvis den er åpen\n\nGjelder kun for Remootio Device API\n\nSiden Remootios Device API har en veldig lav forespørselsgrense, bruk dette kortet med forsiktighet!"
         },
         "args": [
           {
@@ -325,8 +325,8 @@
                 "no": "timer"
               },
               "hint": {
-                "en": "Number of hours between each query for gate/garage door status. Set to 0 to disable automatic status queries",
-                "no": "Antall timer mellom hver statusspørring for porten/garasjeporten. Sett til 0 for å deaktivere automatisk statusspørring"
+                "en": "Number of hours between each query for gate/garage door status. Set to 0 to disable automatic status queries\n\nAs Remootios Device API has a very low request limit, use this setting with caution!",
+                "no": "Antall timer mellom hver statusspørring for porten/garasjeporten. Sett til 0 for å deaktivere automatisk statusspørring\n\nSiden Remootios Device API har en veldig lav forespørselsgrense, bruk denne innstillingen med forsiktighet!"
               }
             }
           ]
