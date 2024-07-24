@@ -4,8 +4,8 @@
     "no": "Stått åpen"
   },
   "hint": {
-    "en": "Triggered when garage door has been left open for the specified duration set in 'Notify if left open' setting in the Remootio app (minimum value 20 seconds, maximum value 4 hours)",
-    "no": "Utløses når garasjeporten har stått åpen i den angitte varigheten satt i 'Notify if left open' innstillingen i Remootio appen (minsteverdi er 20 sekunder, maksverdi er 4 timer)"
+    "en": "Triggered when garage door has been left open for the specified duration set in 'Notify if left open' setting in the Remootio app (minimum value 20 seconds, maximum value 4 hours)\n\nNot applicable for Remootio Device API",
+    "no": "Utløses når garasjeporten har stått åpen i den angitte varigheten satt i 'Notify if left open' innstillingen i Remootio appen (minsteverdi er 20 sekunder, maksverdi er 4 timer)\n\nGjelder ikke for Remootio Device API"
   },
   "tokens": [
     {
