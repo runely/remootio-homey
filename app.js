@@ -100,7 +100,7 @@ class Remootio extends Homey.App {
         return true
       })
 
-      this.homey.flow.getActionCard('garagedoor_open_if_closed')
+    this.homey.flow.getActionCard('garagedoor_open_if_closed')
       .registerRunListener(async args => {
         const { device } = args
         const { success, closed } = await device.getApiDeviceStatus()
