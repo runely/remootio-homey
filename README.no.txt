@@ -62,9 +62,10 @@ Device API'et er hostet på Remootio's servere, så din Remootio enhet må ha ti
 VIKTIG: Device API'et er begrenset til 300 forespørsler per 20 dager (dette er Remootios grenser!). Dette betyr at du bør kunne åpne og lukke porten/garasjedøren din rundt 6 ganger om dagen.
 Hvis du overskrider denne grensen vil du ikke kunne sende forespørsler til Device API'et på en stund (usikker på tidsrammen)!
 
-VIKTIG: Gitt den lave grensen på Device API'et, vil Remootio-appen bare spørre Device API'et for status etter at den har blitt endret i Remootio-appen. Dette for å sikre at Remootio-appen har samme status som Remootio-enheten.
+VIKTIG: Det er en automatisk spørringsstatus (deaktivert som standard), som kan konfigureres til automatisk å spørre om porten/garasjeportens status hver x time.
+Du bør holde dette deaktivert eller bruke med en veldig høy verdi, for eksempel hver 7. time eller høyere, for ikke å overbruke antall spørringer som vil føre til at du ikke kan bruke Device API'et!
 
-VIKTIG: Hvis porten/garasjeporten betjenes utenfor Remootio-appen, vil statusen i Remootio-appen IKKE gjenspeile dette før den er endret i Remootio-appen i Homey.
+VIKTIG: Hvis porten/garasjedøren betjenes utenfor Remootio-appen, vil statusen i Homey Remootio-appen IKKE gjenspeile dette før den er endret i Remootio-appen i Homey, eller når den automatiske spørringsstatusen kjøres (hvis aktivert)
 
 For å tillate at Device API'et kan kontrollere din Remootio enhet, må du sette opp en App-Free key gjennom Remootio app'en på din telefon:
 - Gå til shared keys
@@ -89,5 +90,10 @@ Sekunder for statusendring
 
 Antall sekunder før porten/garasjeporten har endret status etter betjening
 En forespørsel sendes til device api'et etter dette antallet sekunder for å angi riktig enhetsstatus. Dette gjøres for å sikre at enhetsstatusen har samme status som Remootio-enheten.
+
+Timer mellom statusspørringer
+
+Antall timer mellom hver forespørsel om port-/garasjeportstatus. Sett til 0 for å deaktivere automatiske statusspørringer
+Siden Remootios Device API har en veldig lav forespørselsgrense, bruk denne innstillingen med forsiktighet!
 
 For ytterligere dokumentasjon eller feilsøking, sjekk ut GitHub-siden

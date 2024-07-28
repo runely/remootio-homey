@@ -122,9 +122,9 @@ The Device API is hosted on Remootio's servers, so your Remootio device must hav
 
 :exclamation: The Device API is limited to 300 requests per 20 days (this is Remootio's limits!). This means you should be able to open and close your gate/garage door around 6 times a day.<br />If you exceed this limit you will not be able to send requests to the Device API for a while (not sure about the time frame)!
 
-:exclamation: Given the low limit on the Device API, the Remootio app will only query the Device API for its status after it has been toggled. This to make sure the Remootio app has the same status as the Remootio device.
+:exclamation: There is an automatic query status (disabled by default), which can be configured to automatically query the gate/garage door status every x hours.<br />You should keep this disabled or use with a very high value, for instance every 7 hours or higher, to not overuse number of queries which will cause you to not being able to call the Device API!
 
-:exclamation: If the gate/garage door is operated outside the Remootio app, the status in the Remootio app will NOT reflect this until it's been toggled in the Remootio app in Homey.
+:exclamation: If the gate/garage door is operated outside the Remootio app, the status in the Remootio app will NOT reflect this until it's been toggled in the Remootio app in Homey, or when the automatic query status is run (if enabled)
 
 To allow the Device API to control your Remootio device you must setup an App-Free key through the Remootio app on your phone:
 - Go to shared keys
@@ -148,6 +148,10 @@ When adding a Remootio device to your Homey, copy in the `token` value found in 
 **Seconds for status change**
 
 Number of seconds before the gate/garage door has changed status after being operated.<br />A query is sent to the device api after this amount of seconds to set the correct device status. This is done to make sure the device status has the same status as the Remootio device.
+
+**Hours between status queries**
+
+Number of hours between each query for gate/garage door status. Set to 0 to disable automatic status queries<br />As Remootios Device API has a very low request limit, use this setting with caution!
 
 ###### Troubleshooting
 
