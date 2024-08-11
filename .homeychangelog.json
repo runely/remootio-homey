@@ -76,5 +76,8 @@
   },
   "1.7.0": {
     "en": "Added automatic status query for Remootio Device API driver. Added action cards 'Close if open' and 'Open if closed' for Remootio Device API driver"
+  },
+  "1.7.1": {
+    "en": "Dependency updates"
   }
 }
