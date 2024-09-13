@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@types/homey": "npm:homey-apps-sdk-v3-types@0.3.7",
-    "standard": "17.1.0"
+    "standard": "17.1.2"
   },
   "dependencies": {
     "axios": "1.7.4",
