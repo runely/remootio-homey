@@ -176,6 +176,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.7.4
+    - Dependency updates
 - 1.7.3
     - Dependency updates
 - 1.7.2
