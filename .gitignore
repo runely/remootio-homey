@@ -5,3 +5,7 @@ node_modules/
 # Added by Homey CLI
 /.homeybuild/
 /build/
+
+# Rider shit
+.idea/
+Folder.DotSettings.user

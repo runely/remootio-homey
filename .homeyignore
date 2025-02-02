@@ -3,3 +3,5 @@ renovate.json
 LICENSE
 *.md
 README*
+.idea
+Folder.DotSettings.user
