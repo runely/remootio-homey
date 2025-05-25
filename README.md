@@ -178,6 +178,7 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 - 1.7.5
   - Lint fixes and readability improvements
+  - Dependency updates
 - 1.7.4
     - Dependency updates
 - 1.7.3
