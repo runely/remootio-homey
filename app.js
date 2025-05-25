@@ -89,7 +89,7 @@ class Remootio extends Homey.App {
           const garageCapabilityId = device.getGarageDoorCapabilityId()
           if (garageCapabilityId) {
             device.log(`${device.getName()} -- garagedoor_close_if_open called`)
-            device.triggerCapabilityListener(garageCapabilityId, false)
+            await device.triggerCapabilityListener(garageCapabilityId, false)
             return true
           }
 
@@ -114,7 +114,7 @@ class Remootio extends Homey.App {
           const garageCapabilityId = device.getGarageDoorCapabilityId()
           if (garageCapabilityId) {
             device.log(`${device.getName()} -- garagedoor_open_if_closed called`)
-            device.triggerCapabilityListener(garageCapabilityId, false)
+            await device.triggerCapabilityListener(garageCapabilityId, false)
             return true
           }
 

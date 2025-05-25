@@ -92,7 +92,7 @@ These are limitations with the physical Remootio device itself!
   1. Make sure your Remootio device is successfully setup
   2. Make sure you have enabled Wi-Fi on your Remootio device
   3. Make sure your Remootio device is on the same Wi-Fi network as your Homey
-  4. Make sure your Remootio device isn't already added as a device in Homey (serialnumber on the device is used as an identifier, and will only be allowed to be added once)
+  4. Make sure your Remootio device isn't already added as a device in Homey (serial number on the device is used as an identifier, and will only be allowed to be added once)
   5. IF your device is a Remootio3 and has software >= 2.40, the device `MUST` be added manually because **mDNS** support is currently **not available** because Remootio has rewritten the Software to support `HomeKit` and in the process borked **mDNS** support
 - `Device unavailable with error`: <b><u>Authentication or encryption error -- Remootio has disconnected. Check your Wi-Fi connection to the device. Too many failed reconnect attempts...</u></b>
   1. Make sure you have entered the correct `API Secret Key` and `API Auth Key`.
@@ -151,7 +151,7 @@ Number of seconds before the gate/garage door has changed status after being ope
 
 **Hours between status queries**
 
-Number of hours between each query for gate/garage door status. Set to 0 to disable automatic status queries<br />As Remootios Device API has a very low request limit, use this setting with caution!
+Number of hours between each query for gate/garage door status. Set to 0 to disable automatic status queries<br />As Remootio's Device API has a very low request limit, use this setting with caution!
 
 ###### Troubleshooting
 
@@ -161,7 +161,7 @@ Number of hours between each query for gate/garage door status. Set to 0 to disa
   1. Make sure your Remootio device is successfully setup 
   2. Make sure you have enabled Wi-Fi on your Remootio device
   3. Make sure you have successfully created an App-Free key, and that key's `token` value is actually used in the Remootio app in Homey (Repair)
-  4. Make sure your Remootio device isn't already added as a device in Homey (serialnumber on the device is used as an identifier, and will only be allowed to be added once)
+  4. Make sure your Remootio device isn't already added as a device in Homey (serial number on the device is used as an identifier, and will only be allowed to be added once)
 - `Device unavailable with error`: <b><u>Device API not reachable : ...</u></b>
   1. Make sure your Remootio device has Wi-Fi enabled and has internet access
   2. If the error is `429 - Too Many Requests`, you have exceeded the Device API of 300 requests and must wait until Remootio lets you back in!
@@ -178,99 +178,100 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 - 1.7.5
   - Lint fixes and readability improvements
+  - Disabled auto reconnect, because I believe this feature might cause the Remootio device to blacklist the caller's IP address for an unknown amount of time
   - Dependency updates
 - 1.7.4
-    - Dependency updates
+  - Dependency updates
 - 1.7.3
-    - Dependency updates
+  - Dependency updates
 - 1.7.2
-    - Dependency updates
+  - Dependency updates
 - 1.7.1
-    - Dependency updates
+  - Dependency updates
 - 1.7.0
-    - Added action cards `Close if open` and `Open if closed` for **Remootio Device API**
-    - Added automatic status query for **Remootio Device API**
+  - Added action cards `Close if open` and `Open if closed` for **Remootio Device API**
+  - Added automatic status query for **Remootio Device API**
 - 1.6.2
-    - Dependency updates
+  - Dependency updates
 - 1.6.1
-    - Dependency updates
+  - Dependency updates
 - 1.6.0
-    - Added new driver that uses the `Device API` from Remootio allowing your Homey and your Remootio device to be on different LAN's or WAN's
+  - Added new driver that uses the `Device API` from Remootio allowing your Homey and your Remootio device to be on different LAN's or WAN's
 - 1.5.2
-    - Dependency updates
+  - Dependency updates
 - 1.5.1
-    - Minimized footprint
-    - Dependency updates
+  - Minimized footprint
+  - Dependency updates
 - 1.5.0
-    - Updated hint on `left_open` trigger to show correct time range
-    - Added the possibility to manually add device (instead of mDNS) to also support Remootio3 FW >= 2.40 -> [Issue #35](https://github.com/runely/remootio-homey/issues/35)
-    - Dependency updates
+  - Updated hint on `left_open` trigger to show correct time range
+  - Added the possibility to manually add device (instead of mDNS) to also support Remootio3 FW >= 2.40 -> [Issue #35](https://github.com/runely/remootio-homey/issues/35)
+  - Dependency updates
 - 1.4.6
-    - Dependency updates
+  - Dependency updates
 - 1.4.5
-    - Minor fixes
-    - Handle all floating promises
-    - Added information and reconnect possibility if IP, secretkey or authkey is wrong
-    - Dependency updates
+  - Minor fixes
+  - Handle all floating promises
+  - Added information and reconnect possibility if IP, secretkey or authkey is wrong
+  - Dependency updates
 - 1.4.4
-    - Dependency updates
-    - Don't use garageDoorCapability if not registered
-    - More logging
+  - Dependency updates
+  - Don't use garageDoorCapability if not registered
+  - More logging
 - 1.4.3
-    - Bugfix: Auto reconnect `setTimeout` function would still fire after device has been reconnected, disconnected, even removed or even worse when app has been uninstalled/paused
+  - Bugfix: Auto reconnect `setTimeout` function would still fire after device has been reconnected, disconnected, even removed or even worse when app has been uninstalled/paused
 - 1.4.2
-    - Bugfix: Invalid capability
+  - Bugfix: Invalid capability
 - 1.4.1
-    - Added drivers `remootio-fg` and `remootio-gf` to the flow `left_open`
-    - sub-capabilities should only use 1 `.` to prevent any possible problems in the future (this won't break anything for anyone since **v1.4.0** were never released)
-    - Added sub-capability
-        - triggers `Closed` and `Opened`
-        - condition `Is closed/open`
-        - actions `Close`, `Open`, `Toggle open or closed` and `Toggle free relay open or closed`
-    - Added repair functionality to drivers
+  - Added drivers `remootio-fg` and `remootio-gf` to the flow `left_open`
+  - sub-capabilities should only use 1 `.` to prevent any possible problems in the future (this won't break anything for anyone since **v1.4.0** were never released)
+  - Added sub-capability
+    - triggers `Closed` and `Opened`
+    - condition `Is closed/open`
+    - actions `Close`, `Open`, `Toggle open or closed` and `Toggle free relay open or closed`
+  - Added repair functionality to drivers
 - 1.4.0
-    - Added possibility to control `gate impulse control` as well as `free relay output` -> [Issue #27](https://github.com/runely/remootio-homey/issues/27)
-        - Added driver `Remootio (Output 1: gate impulse control, Output 2: free relay output)`
-        - Added driver `Remootio (Output 1: free relay output, Output 2: gate impulse control)`
-        - Renamed default driver to `Remootio (gate impulse control)`. ***This has no impact on existing devices***
-    - Dependency updates
+  - Added possibility to control `gate impulse control` as well as `free relay output` -> [Issue #27](https://github.com/runely/remootio-homey/issues/27)
+    - Added driver `Remootio (Output 1: gate impulse control, Output 2: free relay output)`
+    - Added driver `Remootio (Output 1: free relay output, Output 2: gate impulse control)`
+    - Renamed default driver to `Remootio (gate impulse control)`. ***This has no impact on existing devices***
+  - Dependency updates
 - 1.3.2
-    - Dependency updates
+  - Dependency updates
 - 1.3.1
-    - `this.warn` is not a function...
+  - `this.warn` is not a function...
 - 1.3.0
-    - When Remootio device has been offline for more than (maxReconnectAttempts * autoreconnectMinutes):
-        - Previous behavior were not to reconnect anymore
-        - Now the app will try to reconnect every hour after (maxReconnectAttempts * autoreconnectMinutes) has past and the device still hasn't reconnected
-    - Dependency updates
+  - When Remootio device has been offline for more than (maxReconnectAttempts * autoreconnectMinutes):
+    - Previous behavior were not to reconnect anymore
+    - Now the app will try to reconnect every hour after (maxReconnectAttempts * autoreconnectMinutes) has past and the device still hasn't reconnected
+  - Dependency updates
 - 1.2.4
-    - Dependency updates
-    - **Bugfix**: Prevent `QuickAction` button from changing state when it's clicked. Let the WebSocket API determine when the state should change.
-        - Before this fix, the app could be fooled / confused to think that the state was changed (if the gate was prevented from opening/closing as it was told)
+  - Dependency updates
+  - **Bugfix**: Prevent `QuickAction` button from changing state when it's clicked. Let the WebSocket API determine when the state should change.
+    - Before this fix, the app could be fooled / confused to think that the state was changed (if the gate was prevented from opening/closing as it was told)
 - 1.2.3
-    - DevDependency updates
+  - DevDependency updates
 - 1.2.2
-    - Fixed a bug where device would be set as available when device is unreachable and max retry count was exceeded
-    - Fixed a bug where Remootios auto reconnect feature would be activated again when device is unreachable and max retry count was exceeded
-    - Better error messages on device screen when device is unreachable
+  - Fixed a bug where device would be set as available when device is unreachable and max retry count was exceeded
+  - Fixed a bug where Remootios auto reconnect feature would be activated again when device is unreachable and max retry count was exceeded
+  - Better error messages on device screen when device is unreachable
 - 1.2.1
-    - Reconnect when retry settings are changed as well
-    - Auto reconnect by Remootio library deactivated
-    - Fixed auto reconnect (**Too many failed connect attempts to a Remootio device will brake the websocket client. Restart of the app or new auth settings for the device will create a new websocket client**)
-    - `Max reconnect retries` changed to `3` since a Remootio's websocket client will brake with too many attempts
+  - Reconnect when retry settings are changed as well
+  - Auto reconnect by Remootio library deactivated
+  - Fixed auto reconnect (**Too many failed connect attempts to a Remootio device will brake the websocket client. Restart of the app or new auth settings for the device will create a new websocket client**)
+  - `Max reconnect retries` changed to `3` since a Remootio's websocket client will brake with too many attempts
 - 1.2.0
-    - Added auto reconnect every `x` minutes (when not connected)
-    - Flow card `Left Open` limited to this app only instead of all apps of class `garagedoor`
+  - Added auto reconnect every `x` minutes (when not connected)
+  - Flow card `Left Open` limited to this app only instead of all apps of class `garagedoor`
 - 1.1.2
-    - Moved trigger `Left Open` into device
+  - Moved trigger `Left Open` into device
 - 1.1.1
-    - Fixed a bug where app would retry connecting to device even after max retry count was hit
-    - Added settings for hardware information (updated every time device is connected)
+  - Fixed a bug where app would retry connecting to device even after max retry count was hit
+  - Added settings for hardware information (updated every time device is connected)
 - 1.1.0
-    - Support for multiple Remootio devices
-    - Trigger card `Left open`
+  - Support for multiple Remootio devices
+  - Trigger card `Left open`
 - 1.0.0
-    - Initial release
+  - Initial release
 
 ## Links
 

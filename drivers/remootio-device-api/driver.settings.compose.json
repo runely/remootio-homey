@@ -23,7 +23,7 @@
         },
         "hint": {
           "en": "Number of seconds before the gate/garage door has changed status after being operated.\n\nA query is sent to the device api after this amount of seconds to set the correct device status. This is done to make sure the device status has the same status as the Remootio device.",
-          "no": "Antall sekunder før porten/garasjeporten har endret status etter betjening\n\nEn forespørsel sendes til device api'et etter dette antallet sekunder for å angi riktig enhetsstatus. Dette gjøres for å sikre at enhetsstatusen har samme status som Remootio-enheten."
+          "no": "Antall sekunder før porten/garasjeporten har endret status etter betjening\n\nEn forespørsel sendes til device api etter dette antallet sekunder for å angi riktig enhetsstatus. Dette gjøres for å sikre at enhetsstatusen har samme status som Remootio-enheten."
         }
       },
       {
@@ -42,8 +42,8 @@
           "no": "timer"
         },
         "hint": {
-          "en": "Number of hours between each query for gate/garage door status. Set to 0 to disable automatic status queries\n\nAs Remootios Device API has a very low request limit, use this setting with caution!",
-          "no": "Antall timer mellom hver statusspørring for porten/garasjeporten. Sett til 0 for å deaktivere automatisk statusspørring\n\nSiden Remootios Device API har en veldig lav forespørselsgrense, bruk denne innstillingen med forsiktighet!"
+          "en": "Number of hours between each query for gate/garage door status. Set to 0 to disable automatic status queries\n\nAs Remootio's Device API has a very low request limit, use this setting with caution!",
+          "no": "Antall timer mellom hver statusspørring for porten/garasjeporten. Sett til 0 for å deaktivere automatisk statusspørring\n\nSiden Remootio's Device API har en veldig lav forespørselgrense, bruk denne innstillingen med forsiktighet!"
         }
       }
     ]

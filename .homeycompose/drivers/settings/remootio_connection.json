@@ -68,7 +68,7 @@
       "max": 60,
       "value": 5,
       "hint": {
-        "en": "Auto reconnect every X minutes (when not connected). If set to 0, auto reconnecion will not be performed",
+        "en": "Auto reconnect every X minutes (when not connected). If set to 0, auto reconnection will not be performed",
         "no": "Tilkoble automatisk hver X minutter (når ikke tilkoblet). Hvis satt til 0 vil automatisk tilkoblingsforsøk ikke utføres"
       }
     }

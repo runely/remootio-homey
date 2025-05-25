@@ -94,6 +94,6 @@ A query is sent to the device api after this amount of seconds to set the correc
 Hours between status queries
 
 Number of hours between each query for gate/garage door status. Set to 0 to disable automatic status queries
-As Remootios Device API has a very low request limit, use this setting with caution!
+As Remootio's Device API has a very low request limit, use this setting with caution!
 
 For additional documentation or troubleshooting, check out the GitHub page

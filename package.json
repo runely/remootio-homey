@@ -11,7 +11,7 @@
     "test:fix": "standard --fix",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
     "homey-build": "homey app build",
-    "homey-run": "homey app run",
+    "homey-run": "homey app run --remote",
     "homey-install": "npm run test:fix && homey app install",
     "homey-publish": "npm run test:fix && homey app publish"
   },

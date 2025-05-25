@@ -6,8 +6,8 @@
     "no": "Åpne hvis lukket"
   },
   "hint": {
-    "en": "Will fetch garage door status from the API and open it if it's closed\n\nOnly applicable for Remootio Device API\n\nAs Remootios Device API has a very low request limit, use this card with caution!",
-    "no": "Vil hente status for garasjeporten fra API'et og åpne den hvis den er lukket\n\nGjelder kun for Remootio Device API\n\nSiden Remootios Device API har en veldig lav forespørselsgrense, bruk dette kortet med forsiktighet!"
+    "en": "Will fetch garage door status from the API and open it if it's closed\n\nOnly applicable for Remootio Device API\n\nAs Remootio's Device API has a very low request limit, use this card with caution!",
+    "no": "Vil hente status for garasjeporten fra API og åpne den hvis den er lukket\n\nGjelder kun for Remootio Device API\n\nSiden Remootio's Device API har en veldig lav forespørselgrense, bruk dette kortet med forsiktighet!"
   },
   "args": [
     {

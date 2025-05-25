@@ -101,7 +101,7 @@ class RemootioDriver extends Driver {
       }
 
       this.log('driver_onRepair -> login : isConnected before repair :', device.remootio.isConnected)
-      device.setSettings({
+      await device.setSettings({
         secretKey,
         authKey
       })
