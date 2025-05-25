@@ -80,19 +80,19 @@
         if (error) {
           Homey.alert(Homey.__('driver.pair.formError'))
           return
-        } else {
-          Homey.emit('add-device-manually-post', {
-            name: document.getElementById('name').value,
-            id: document.getElementById('sn').value,
-            ip: document.getElementById('ip').value
-          }).then(function (data) {
-            Homey.createDevice(data)
-              .then(function () { Homey.done() })
-              .catch(function (err) { Homey.alert(`${Homey.__('driver.pair.addDeviceManually.createDeviceError')}: ${err}`) })
-          }).catch(function (err) {
-            Homey.alert(err)
-          })
         }
+
+        Homey.emit('add-device-manually-post', {
+          name: document.getElementById('name').value,
+          id: document.getElementById('sn').value,
+          ip: document.getElementById('ip').value
+        }).then(function (data) {
+          Homey.createDevice(data)
+            .then(function () { Homey.done() })
+            .catch(function (err) { Homey.alert(`${Homey.__('driver.pair.addDeviceManually.createDeviceError')}: ${err}`) })
+        }).catch(function (err) {
+          Homey.alert(err)
+        })
       })
     </script>
   </body>

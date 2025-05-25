@@ -27,10 +27,10 @@ class Remootio extends Homey.App {
           device.log(`${device.getName()} -- garagedoor_close_sub called`)
           device.triggerCapabilityListener(garageCapabilityId, true)
           return true
-        } else {
-          device.log(`${device.getName()} -- garagedoor_close_sub -- Garagedoor capability not found`)
-          return false
         }
+
+        device.log(`${device.getName()} -- garagedoor_close_sub -- Garagedoor capability not found`)
+        return false
       })
 
     this.homey.flow.getActionCard('garagedoor_open_sub')
@@ -41,10 +41,10 @@ class Remootio extends Homey.App {
           device.log(`${device.getName()} -- garagedoor_open_sub called`)
           device.triggerCapabilityListener(garageCapabilityId, false)
           return true
-        } else {
-          device.log(`${device.getName()} -- garagedoor_open_sub -- Garagedoor capability not found`)
-          return false
         }
+
+        device.log(`${device.getName()} -- garagedoor_open_sub -- Garagedoor capability not found`)
+        return false
       })
 
     this.homey.flow.getActionCard('garagedoor_toggle_sub')
@@ -55,10 +55,10 @@ class Remootio extends Homey.App {
           device.log(`${device.getName()} -- garagedoor_toggle_sub called`)
           device.triggerCapabilityListener(garageCapabilityId, !device.getGarageDoorState())
           return true
-        } else {
-          device.log(`${device.getName()} -- garagedoor_toggle_sub -- Garagedoor capability not found`)
-          return false
         }
+
+        device.log(`${device.getName()} -- garagedoor_toggle_sub -- Garagedoor capability not found`)
+        return false
       })
 
     this.homey.flow.getActionCard('garagedoor_toggle_free_sub')
@@ -69,6 +69,7 @@ class Remootio extends Homey.App {
           device.log(`${device.getName()} -- garagedoor_toggle_free_sub -- CapabilityId not found for free relay output -- ${id}`)
           return false
         }
+
         device.log(`${device.getName()} -- garagedoor_toggle_free_sub called`)
         device.triggerCapabilityListener(id, !device.getFreeRelayState())
         return true
@@ -90,10 +91,10 @@ class Remootio extends Homey.App {
             device.log(`${device.getName()} -- garagedoor_close_if_open called`)
             device.triggerCapabilityListener(garageCapabilityId, false)
             return true
-          } else {
-            device.log(`${device.getName()} -- garagedoor_close_if_open -- Garagedoor capability not found`)
-            return false
           }
+
+          device.log(`${device.getName()} -- garagedoor_close_if_open -- Garagedoor capability not found`)
+          return false
         }
 
         device.log(`${device.getName()} -- garagedoor_close_if_open did nothing since its already closed`)
@@ -115,10 +116,10 @@ class Remootio extends Homey.App {
             device.log(`${device.getName()} -- garagedoor_open_if_closed called`)
             device.triggerCapabilityListener(garageCapabilityId, false)
             return true
-          } else {
-            device.log(`${device.getName()} -- garagedoor_open_if_closed -- Garagedoor capability not found`)
-            return false
           }
+
+          device.log(`${device.getName()} -- garagedoor_open_if_closed -- Garagedoor capability not found`)
+          return false
         }
 
         device.log(`${device.getName()} -- garagedoor_open_if_closed did nothing since its already open`)

@@ -22,9 +22,9 @@ Which driver to use
 
 For output configurations 1, 4 and 5 - choose "Remootio (gate impulse control)"
 
-For output configuration 2 - choose "Remootio (Output 1: gate impulse control, Output 2: free relay output)
+For output configuration 2 - choose "Remootio (Output 1: gate impulse control, Output 2: free relay output)"
 
-For output configuration 3 - choose "Remootio (Output 1: free relay output, Output 2: gate impulse control)
+For output configuration 3 - choose "Remootio (Output 1: free relay output, Output 2: gate impulse control)"
 
 Pairing
 
@@ -67,7 +67,7 @@ You should keep this disabled or use with a very high value, for instance every 
 
 IMPORTANT: If the gate/garage door is operated outside the Remootio app, the status in the Homey Remootio app will NOT reflect this until it's been toggled in the Remootio app in Homey, or when the automatic query status is run (if enabled)
 
-To allow the Device API to control your Remootio device you must setup an App-Free key through the Remootio app on your phone:
+To allow the Device API to control your Remootio device you must set up an App-Free key through the Remootio app on your phone:
 - Go to shared keys
 - Click 'Share a new key' and choose 'Share unique key (recommended)'
 - Give the key a meaningful name

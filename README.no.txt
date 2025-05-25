@@ -22,9 +22,9 @@ Hvilken driver bør jeg bruke
 
 For output configurations 1, 4 og 5 - bruk "Remootio (gate impulse control)"
 
-For output configuration 2 - bruk "Remootio (Output 1: gate impulse control, Output 2: free relay output)
+For output configuration 2 - bruk "Remootio (Output 1: gate impulse control, Output 2: free relay output)"
 
-For output configuration 3 - bruk "Remootio (Output 1: free relay output, Output 2: gate impulse control)
+For output configuration 3 - bruk "Remootio (Output 1: free relay output, Output 2: gate impulse control)"
 
 Sammenkobling
 

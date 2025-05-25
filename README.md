@@ -84,19 +84,19 @@ These are limitations with the physical Remootio device itself!
 ```
 
 - `Device shows incorrect status of the gate/garage door`
-    1. Make sure `Is sensor logic flipped` setting on the Device in Homey is set equal to `Flip logic` setting in the Remootio app
-    1. Make sure you have chosen the correct driver for your Output configuration
+  1. Make sure `Is sensor logic flipped` setting on the Device in Homey is set equal to `Flip logic` setting in the Remootio app
+  2. Make sure you have chosen the correct driver for your Output configuration
 - `Device doesn't change status when gate/garage door is opened/closed externally (by button or Remootio app etc.)`
-    1. Make sure **Websocket API** is enabled with logging
+  1. Make sure **Websocket API** is enabled with logging
 - `Device not found in pairing`
-    1. Make sure your Remootio device is successfully setup
-    1. Make sure you have enabled Wi-Fi on your Remootio device
-    1. Make sure your Remootio device is on the same Wi-Fi network as your Homey
-    1. Make sure your Remootio device isn't already added as a device in Homey (serialnumber on the device is used as an identifier, and will only be allowed to be added once)
-    1. IF your device is a Remootio3 and has software >= 2.40, the device `MUST` be added manually because **mDNS** support is currently **not available** because Remootio has rewritten the Software to support `HomeKit` and in the process borked **mDNS** support
-- `Device unavailable with error`: <b><u>Authentication or encryption error -- Remootio has disconnected. Check your WiFi connection to the device. Too many failed reconnect attempts...</u></b>
-    1. Make sure you have entered the correct `API Secret Key` and `API Auth Key`.
-    1. Too many failed connect attempts to a Remootio device will brake the websocket client.<br>Restarting the app or setting new auth settings for the device will create a new websocket client
+  1. Make sure your Remootio device is successfully setup
+  2. Make sure you have enabled Wi-Fi on your Remootio device
+  3. Make sure your Remootio device is on the same Wi-Fi network as your Homey
+  4. Make sure your Remootio device isn't already added as a device in Homey (serialnumber on the device is used as an identifier, and will only be allowed to be added once)
+  5. IF your device is a Remootio3 and has software >= 2.40, the device `MUST` be added manually because **mDNS** support is currently **not available** because Remootio has rewritten the Software to support `HomeKit` and in the process borked **mDNS** support
+- `Device unavailable with error`: <b><u>Authentication or encryption error -- Remootio has disconnected. Check your Wi-Fi connection to the device. Too many failed reconnect attempts...</u></b>
+  1. Make sure you have entered the correct `API Secret Key` and `API Auth Key`.
+  2. Too many failed connect attempts to a Remootio device will brake the websocket client.<br>Restarting the app or setting new auth settings for the device will create a new websocket client
 
 For any other issues, see [Remootio Installation Guide](https://documents.remootio.com/docs/Remootio_Installation_Guide.pdf) for installation instructions and troubleshooting
 
@@ -126,7 +126,7 @@ The Device API is hosted on Remootio's servers, so your Remootio device must hav
 
 :exclamation: If the gate/garage door is operated outside the Remootio app, the status in the Remootio app will NOT reflect this until it's been toggled in the Remootio app in Homey, or when the automatic query status is run (if enabled)
 
-To allow the Device API to control your Remootio device you must setup an App-Free key through the Remootio app on your phone:
+To allow the Device API to control your Remootio device you must set up an App-Free key through the Remootio app on your phone:
 - Go to shared keys
 - Click `Share a new key` and choose `Share unique key (recommended)`
 - Give the key a meaningful name
@@ -156,17 +156,17 @@ Number of hours between each query for gate/garage door status. Set to 0 to disa
 ###### Troubleshooting
 
 - `Device doesn't change status when gate/garage door is opened/closed externally (by button or Remootio app etc.)`
-    1. This is by design. The device API is limited to 300 requests per 20 days, so in order not to go beyond the limit, the device status is not updated automatically but only when the device status changes from the Remootio app in Homey
+  1. This is by design. The device API is limited to 300 requests per 20 days, so in order not to go beyond the limit, the device status is not updated automatically but only when the device status changes from the Remootio app in Homey
 - `Device not found in pairing`
-    1. Make sure your Remootio device is successfully setup
-    1. Make sure you have enabled Wi-Fi on your Remootio device
-    1. Make sure you have successfully created an App-Free key, and that key's `token` value is actually used in the Remootio app in Homey (Repair)
-    1. Make sure your Remootio device isn't already added as a device in Homey (serialnumber on the device is used as an identifier, and will only be allowed to be added once)
+  1. Make sure your Remootio device is successfully setup 
+  2. Make sure you have enabled Wi-Fi on your Remootio device
+  3. Make sure you have successfully created an App-Free key, and that key's `token` value is actually used in the Remootio app in Homey (Repair)
+  4. Make sure your Remootio device isn't already added as a device in Homey (serialnumber on the device is used as an identifier, and will only be allowed to be added once)
 - `Device unavailable with error`: <b><u>Device API not reachable : ...</u></b>
-    1. Make sure your Remootio device has WiFi enabled and has internet access
-    1. If the error is `429 - Too Many Requests`, you have exceeded the Device API of 300 requests and must wait until Remootio lets you back in!
+  1. Make sure your Remootio device has Wi-Fi enabled and has internet access
+  2. If the error is `429 - Too Many Requests`, you have exceeded the Device API of 300 requests and must wait until Remootio lets you back in!
 - `Device unavailable with error`: <b><u>Device API query failed : ...</u></b>
-    1. Make sure the `token` value you have added is working. You can test the token by visiting this Remootio site and use the token. If you can connect to your device, the token is valid: https://device.remootio.com/
+  1. Make sure the `token` value you have added is working. You can test the token by visiting this Remootio site and use the token. If you can connect to your device, the token is valid: https://device.remootio.com/
 
 For any other issues, see [Remootio Installation Guide](https://documents.remootio.com/docs/Remootio_Installation_Guide.pdf) for installation instructions and troubleshooting
 
@@ -176,6 +176,8 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 1.7.5
+  - Lint fixes and readability improvements
 - 1.7.4
     - Dependency updates
 - 1.7.3
@@ -214,7 +216,7 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
     - Don't use garageDoorCapability if not registered
     - More logging
 - 1.4.3
-    - Bugfix: Autoreconnect `setTimeout` function would still fire after device has been reconnected, disconnected, even removed or even worse when app has been uninstalled/paused
+    - Bugfix: Auto reconnect `setTimeout` function would still fire after device has been reconnected, disconnected, even removed or even worse when app has been uninstalled/paused
 - 1.4.2
     - Bugfix: Invalid capability
 - 1.4.1
@@ -224,9 +226,9 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
         - triggers `Closed` and `Opened`
         - condition `Is closed/open`
         - actions `Close`, `Open`, `Toggle open or closed` and `Toggle free relay open or closed`
-    - Added repair functionallity to drivers
+    - Added repair functionality to drivers
 - 1.4.0
-    - Added possibility to control `gate impulse control` aswell as `free relay output` -> [Issue #27](https://github.com/runely/remootio-homey/issues/27)
+    - Added possibility to control `gate impulse control` as well as `free relay output` -> [Issue #27](https://github.com/runely/remootio-homey/issues/27)
         - Added driver `Remootio (Output 1: gate impulse control, Output 2: free relay output)`
         - Added driver `Remootio (Output 1: free relay output, Output 2: gate impulse control)`
         - Renamed default driver to `Remootio (gate impulse control)`. ***This has no impact on existing devices***
@@ -251,7 +253,7 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
     - Fixed a bug where Remootios auto reconnect feature would be activated again when device is unreachable and max retry count was exceeded
     - Better error messages on device screen when device is unreachable
 - 1.2.1
-    - Reconnect when retry settings are changed aswell
+    - Reconnect when retry settings are changed as well
     - Auto reconnect by Remootio library deactivated
     - Fixed auto reconnect (**Too many failed connect attempts to a Remootio device will brake the websocket client. Restart of the app or new auth settings for the device will create a new websocket client**)
     - `Max reconnect retries` changed to `3` since a Remootio's websocket client will brake with too many attempts

@@ -22,18 +22,24 @@ class RemootioDriver extends Driver {
       authKey = data.authKey
       this.log('driver_onPair -> login-secret-keys-post :', data)
 
-      if (!data.secretKey && !data.authKey) throw new Error(this.homey.__('driver.onPair.missing_secret_and_auth'))
-      else if (!data.secretKey) throw new Error(this.homey.__('driver.onPair.missing_secret'))
-      else if (!data.authKey) throw new Error(this.homey.__('driver.onPair.missing_auth'))
+      if (!data.secretKey && !data.authKey) {
+        throw new Error(this.homey.__('driver.onPair.missing_secret_and_auth'))
+      }
+      else if (!data.secretKey) {
+        throw new Error(this.homey.__('driver.onPair.missing_secret'))
+      }
+      else if (!data.authKey) {
+        throw new Error(this.homey.__('driver.onPair.missing_auth'))
+      }
 
       // there's no way to know if keys are valid until device has been discovered, so we assume it is
       if (data.manual) {
         this.log('driver_onPair -> login-secret-keys-post : showing add-device-manually')
         await session.showView('add-device-manually')
-      } else {
-        this.log('driver_onPair -> login-secret-keys-post : showing list_devices')
-        await session.showView('list_devices')
       }
+
+      this.log('driver_onPair -> login-secret-keys-post : showing list_devices')
+      await session.showView('list_devices')
     })
 
     session.setHandler('add-device-manually-post', async data => {
@@ -88,9 +94,15 @@ class RemootioDriver extends Driver {
       secretKey = data.username
       authKey = data.password
 
-      if (!data.username && !data.password) throw new Error(this.homey.__('driver.onPair.missing_secret_and_auth'))
-      else if (!data.username) throw new Error(this.homey.__('driver.onPair.missing_secret'))
-      else if (!data.password) throw new Error(this.homey.__('driver.onPair.missing_auth'))
+      if (!data.username && !data.password) {
+        throw new Error(this.homey.__('driver.onPair.missing_secret_and_auth'))
+      }
+      else if (!data.username) {
+        throw new Error(this.homey.__('driver.onPair.missing_secret'))
+      }
+      else if (!data.password) {
+        throw new Error(this.homey.__('driver.onPair.missing_auth'))
+      }
 
       this.log('driver_onRepair -> login : isConnected before repair :', device.remootio.isConnected)
       device.setSettings({
