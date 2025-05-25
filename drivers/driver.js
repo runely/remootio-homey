@@ -24,11 +24,9 @@ class RemootioDriver extends Driver {
 
       if (!data.secretKey && !data.authKey) {
         throw new Error(this.homey.__('driver.onPair.missing_secret_and_auth'))
-      }
-      else if (!data.secretKey) {
+      } else if (!data.secretKey) {
         throw new Error(this.homey.__('driver.onPair.missing_secret'))
-      }
-      else if (!data.authKey) {
+      } else if (!data.authKey) {
         throw new Error(this.homey.__('driver.onPair.missing_auth'))
       }
 
@@ -96,11 +94,9 @@ class RemootioDriver extends Driver {
 
       if (!data.username && !data.password) {
         throw new Error(this.homey.__('driver.onPair.missing_secret_and_auth'))
-      }
-      else if (!data.username) {
+      } else if (!data.username) {
         throw new Error(this.homey.__('driver.onPair.missing_secret'))
-      }
-      else if (!data.password) {
+      } else if (!data.password) {
         throw new Error(this.homey.__('driver.onPair.missing_auth'))
       }
 
