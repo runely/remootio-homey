@@ -24,7 +24,9 @@ class RemootioDeviceAPIDriver extends Driver {
       secretKey = data.secretKey
       this.log('driver_onPair -> login-secret-key-post :', data)
 
-      if (!data.secretKey) throw new Error(this.homey.__('driver.onPair.missing_token'))
+      if (!data.secretKey) {
+        throw new Error(this.homey.__('driver.onPair.missing_token'))
+      }
 
       // make a GET request to the device API. If the secretKey is valid, we will receive 200 OK and info about the device
       const deviceData = await query(secretKey)
@@ -78,7 +80,9 @@ class RemootioDeviceAPIDriver extends Driver {
       const serialNumber = device.getSetting('serialNumber')
       this.log(`[${deviceName}][${serialNumber}] - driver_onRepair -> login-secret-key-post :`, data)
 
-      if (!data.secretKey) throw new Error(this.homey.__('driver.onPair.missing_token'))
+      if (!data.secretKey) {
+        throw new Error(this.homey.__('driver.onPair.missing_token'))
+      }
 
       // make a GET request to the device API. If the secretKey is valid, we will receive 200 OK and info about the device
       const deviceData = await query(data.secretKey)
