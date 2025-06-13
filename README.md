@@ -178,6 +178,7 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 - 1.8.1
   - Fixed a logic bug when querying the Remootio device
+  - Readability improvements
 - 1.8.0
   - Lint fixes and readability improvements
   - Disabled auto reconnect, because I believe this feature might cause the Remootio device to blacklist the caller's IP address for an unknown amount of time
