@@ -91,5 +91,8 @@
   },
   "1.8.0": {
     "en": "- Disabled auto reconnect, because I believe this feature might cause the Remootio device to blacklist the caller's IP address for an unknown amount of time. Lint fixes and readability improvements. Dependency updates"
+  },
+  "1.8.1": {
+    "en": "Fixed a logic bug when querying the Remootio device"
   }
 }
