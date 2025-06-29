@@ -94,5 +94,8 @@
   },
   "1.8.1": {
     "en": "Fixed a logic bug when querying the Remootio device"
+  },
+  "1.8.2": {
+    "en": "Dependency updates"
   }
 }
