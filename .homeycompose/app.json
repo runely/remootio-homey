@@ -1,6 +1,6 @@
 {
   "id": "no.runely.remootio",
-  "version": "1.8.2",
+  "version": "2.0.0",
   "compatibility": ">=12.9.0",
   "sdk": 3,
   "brandColor": "#ed6517",
