@@ -5,6 +5,9 @@
   "repository": {
     "url": "https://github.com/runely/remootio-homey"
   },
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "license": "GPL-3.0-or-later",
   "scripts": {
     "test": "standard",
@@ -17,10 +20,10 @@
   },
   "devDependencies": {
     "@types/homey": "npm:homey-apps-sdk-v3-types@0.3.12",
+    "@types/node": "^24.9.1",
     "standard": "17.1.2"
   },
   "dependencies": {
-    "axios": "1.10.0",
     "remootio-api-client": "2.0.4"
   }
 }

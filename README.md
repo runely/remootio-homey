@@ -176,6 +176,9 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 2.0.0
+  - Remootio is limited to only run on Homey Firmware >= 12.9.0, because this has Node.js 22 as runtime
+  - Removed axios in favour of builtin fetch 🎉
 - 1.8.2
   - Dependency updates
 - 1.8.1
