@@ -15,8 +15,8 @@
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
     "homey-build": "homey app build",
     "homey-run": "homey app run --remote",
-    "homey-install": "npm run test:fix && homey app install",
-    "homey-publish": "npm run test:fix && homey app publish"
+    "homey-install": "npm run test && homey app install",
+    "homey-publish": "npm run test && homey app publish"
   },
   "devDependencies": {
     "@types/homey": "npm:homey-apps-sdk-v3-types@0.3.12",
