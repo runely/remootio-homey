@@ -177,11 +177,10 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 ## Changelog
 
 - 2.0.1
-  - 2.0.0
   - Dependency updates
 - 2.0.0 (only released in test)
   - Remootio is limited to only run on Homey Firmware >= 12.9.0, because this has Node.js 22 as runtime
-  - Removed axios in favour of builtin fetch 🎉 This decreases the app size by half
+  - Removed axios in favor of builtin fetch 🎉 This decreases the app size by half
 - 1.8.2
   - Dependency updates
 - 1.8.1
@@ -215,7 +214,7 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
   - Dependency updates
 - 1.5.0
   - Updated hint on `left_open` trigger to show correct time range
-  - Added the possibility to manually add device (instead of mDNS) to also support Remootio3 FW >= 2.40 -> [Issue #35](https://github.com/runely/remootio-homey/issues/35)
+  - Added the possibility to manually add device (instead of mDNS) to also support Remootio3 FW >= 2.40 → [Issue #35](https://github.com/runely/remootio-homey/issues/35)
   - Dependency updates
 - 1.4.6
   - Dependency updates
