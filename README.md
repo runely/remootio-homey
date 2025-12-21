@@ -176,6 +176,12 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 ## Changelog
 
+- 2.0.3
+  - Dependency updates
+- 2.0.2
+  - Limited to run on Homey Firmware >= 12.9.0 to use Node.js 22!!!!
+  - Dependency updates
+  - Removed axios in favor of builtin fetch. This decreases the app size by half
 - 2.0.1
   - Dependency updates
 - 2.0.0 (only released in test)
