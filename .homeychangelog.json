@@ -106,5 +106,8 @@
   },
   "2.0.2": {
     "en": "- Limited to run on Homey Firmware >= 12.9.0 to use Node.js 22!!!! - Dependency updates - Removed axios in favor of builtin fetch. This decreases the app size by half"
+  },
+  "2.0.3": {
+    "en": "Dependency updates"
   }
 }
