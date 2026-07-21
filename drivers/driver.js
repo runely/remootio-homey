@@ -33,7 +33,7 @@ class RemootioDriver extends Driver {
       // there's no way to know if keys are valid until device has been discovered, so we assume it is
       if (data.manual) {
         this.log('driver_onPair -> login-secret-keys-post : showing add-device-manually')
-        await session.showView('add-device-manually')
+        return await session.showView('add-device-manually')
       }
 
       this.log('driver_onPair -> login-secret-keys-post : showing list_devices')
