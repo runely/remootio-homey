@@ -178,6 +178,7 @@ For any other issues, see [Remootio Installation Guide](https://documents.remoot
 
 - 2.0.5
   - Choosing `Manually add device` on pairing to a Homey >= Homey Pro Early 2023, showed the **list_devices** view anyway. On Homey < Homey Pro Early 2023 (Homey 2019), this worked 🤔
+  - Dev dependency updates
 - 2.0.4
   - Dependency updates
 - 2.0.3
