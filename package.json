@@ -24,6 +24,6 @@
     "standard": "17.1.2"
   },
   "dependencies": {
-    "remootio-api-client": "2.0.4"
+    "remootio-api-client": "2.0.5"
   }
 }
