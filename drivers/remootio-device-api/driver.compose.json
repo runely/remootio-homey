@@ -3,9 +3,7 @@
     "en": "Remootio Device API"
   },
   "class": "garagedoor",
-  "capabilities": [
-    "garagedoor_closed"
-  ],
+  "capabilities": ["garagedoor_closed"],
   "connectivity": [],
   "icon": "{{driverAssetsPath}}/icon.svg",
   "images": {

@@ -10,8 +10,8 @@
   },
   "license": "GPL-3.0-or-later",
   "scripts": {
-    "test": "standard",
-    "test:fix": "standard --fix",
+    "test": "biome check --max-diagnostics 10000",
+    "test:fix": "biome check --write --max-diagnostics 10000",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
     "homey-build": "homey app build",
     "homey-run": "homey app run --remote",
@@ -19,9 +19,9 @@
     "homey-publish": "npm run test && homey app publish"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.5.15",
     "@types/homey": "npm:homey-apps-sdk-v3-types@0.3.12",
-    "@types/node": "^26.6.5",
-    "standard": "17.1.2"
+    "@types/node": "^26.6.5"
   },
   "dependencies": {
     "remootio-api-client": "^2.0.5"

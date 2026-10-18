@@ -1,7 +1,5 @@
-'use strict'
+const RemootioDeviceAPI = require("../../lib/device/remootio-device-api.js");
 
-const RemootioDeviceAPI = require('../../lib/device/remootio-device-api')
+class RemootioDeviceAPIDevice extends RemootioDeviceAPI {}
 
-class RemootioDeviceAPIDevice extends RemootioDeviceAPI { }
-
-module.exports = RemootioDeviceAPIDevice
+module.exports = RemootioDeviceAPIDevice;

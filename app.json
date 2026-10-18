@@ -12,9 +12,7 @@
     "en": "Make your garage doors and gates smart",
     "no": "Gjør dine garasjeporter smarte"
   },
-  "category": [
-    "security"
-  ],
+  "category": ["security"],
   "permissions": [],
   "images": {
     "small": "/assets/images/small.png",
@@ -245,9 +243,7 @@
         "en": "Remootio Device API"
       },
       "class": "garagedoor",
-      "capabilities": [
-        "garagedoor_closed"
-      ],
+      "capabilities": ["garagedoor_closed"],
       "connectivity": [],
       "icon": "/drivers/remootio-device-api/assets/icon.svg",
       "images": {
@@ -887,9 +883,7 @@
       "name": {
         "en": "Remootio (gate impulse control)"
       },
-      "capabilities": [
-        "garagedoor_closed"
-      ],
+      "capabilities": ["garagedoor_closed"],
       "id": "remootio-v3",
       "settings": [
         {

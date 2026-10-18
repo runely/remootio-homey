@@ -2,8 +2,6 @@
   "name": {
     "en": "Remootio (gate impulse control)"
   },
-  "capabilities": [
-    "garagedoor_closed"
-  ],
+  "capabilities": ["garagedoor_closed"],
   "$extends": ["remootio"]
 }

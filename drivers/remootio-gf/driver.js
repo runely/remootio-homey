@@ -1,11 +1,9 @@
-'use strict'
-
-const RemootioDriver = require('../driver')
+const RemootioDriver = require("../driver.js");
 
 class Driver extends RemootioDriver {
-  async onInit () {
-    await super.onInit()
+  async onInit() {
+    await super.onInit();
   }
 }
 
-module.exports = Driver
+module.exports = Driver;
