@@ -13,7 +13,7 @@
     "indentStyle": "space",
     "indentWidth": 2,
     "expand": "auto",
-    "includes": ["**", "!node_modules", "!!package.json"]
+    "includes": ["**", "!node_modules", "!!package.json", "!!**/app.json"]
   },
   "linter": {
     "enabled": true,
@@ -31,7 +31,7 @@
         }
       }
     },
-    "includes": ["**", "!node_modules", "!!package.json"]
+    "includes": ["**", "!node_modules", "!!package.json", "!!**/app.json"]
   },
   "javascript": {
     "formatter": {
@@ -43,7 +43,7 @@
   },
   "overrides": [
     {
-      "includes": ["**", "!node_modules", "!!package.json"],
+      "includes": ["**", "!node_modules", "!!package.json", "!!**/app.json"],
       "javascript": {
         "globals": []
       },
