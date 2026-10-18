@@ -1,6 +1,6 @@
 {
   "id": "no.runely.remootio",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "compatibility": ">=12.9.0",
   "sdk": 3,
   "brandColor": "#ed6517",
@@ -11,7 +11,9 @@
     "en": "Make your garage doors and gates smart",
     "no": "Gjør dine garasjeporter smarte"
   },
-  "category": ["security"],
+  "category": [
+    "security"
+  ],
   "permissions": [],
   "images": {
     "small": "/assets/images/small.png",

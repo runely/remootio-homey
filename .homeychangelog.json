@@ -115,5 +115,8 @@
   },
   "2.0.5": {
     "en": "Bugfix: 'Manually add device' didn't work as expected on Homey >= Homey Pro Early 2023"
+  },
+  "2.0.6": {
+    "en": "Dependency updates"
   }
 }
